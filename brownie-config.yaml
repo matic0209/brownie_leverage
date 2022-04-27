@@ -31,9 +31,10 @@ networks:
         variableDebtWethAddress: "0xF63B34710400CAd3e044cFfDcAb00a0f32E33eCf"
         aaveAddress: "0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9"
         staker: "0x3Fe65692bfCD0e6CF84cB1E7d24108E434A7587e"
-        default_balance: 2000000000000000000000000000
+
         cmd_settings:
             gas_limit: 12000000000000
+            default_balance: 2000000000000000000000000000
             unlock:
               - 0xCFFAd3200574698b78f32232aa9D63eABD290703 # DAO's upgratable Agent
     ganache:
