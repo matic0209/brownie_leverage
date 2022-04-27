@@ -1,8 +1,9 @@
+
 compiler:
     solc:
         version: 0.5.10
 # automatically fetch contract sources from Etherscan
-autofetch_sources: True
+autofetch_sources: Truep
 # Uncomment to use the .env file
 # dotenv: .env
 # set a custom mnemonic for the development network
@@ -28,13 +29,12 @@ networks:
         eth_usdt_router: "0xD51a44d3FaE010294C616388b506AcdA1bfAAE46"
         usdt: "0xdAC17F958D2ee523a2206206994597C13D831ec7"
         oracle: "0xCd627aA160A6fA45Eb793D19Ef54f5062F20f33f"
-        variableDebtWethAddress: "0xF63B34710400CAd3e044cFfDcAb00a0f32E33eCf"
-        aaveAddress: "0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9"
-        staker: "0x3Fe65692bfCD0e6CF84cB1E7d24108E434A7587e"
 
+        staker: "0x3Fe65692bfCD0e6CF84cB1E7d24108E434A7587e"
+        default_balance: 2000000000000000000000000000
         cmd_settings:
+            fee: 100000000000000000
             gas_limit: 12000000000000
-            default_balance: 2000000000000000000000000000
             unlock:
               - 0xCFFAd3200574698b78f32232aa9D63eABD290703 # DAO's upgratable Agent
     ganache:
