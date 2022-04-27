@@ -4,12 +4,13 @@ from brownie import (
     config,
     Contract,
     web3,
-    interface,
-
-
-
-
-
+    AddressArray,
+    TrustListFactory,
+    EFLeverVault,
+    ERC20TokenFactory,
+    ERC20Token,
+    ERC20Base,
+    TestERC20
 )
 import time
 
@@ -23,9 +24,10 @@ LOCAL_BLOCKCHAIN_ENVIRONMENTS = NON_FORKED_LOCAL_BLOCKCHAIN_ENVIRONMENTS + [
 BLOCK_CONFIRMATIONS_FOR_VERIFICATION = 6
 
 contract_to_mock = {
-    "variableDebtWethAddress":interface.VariableDebtToken,
-    "aaveAddress" :interface.IAAVE
-
+    "usdc": ERC20Token,
+    "crv": ERC20Token,
+    "ef-token":ERC20Token,
+    "vault":EFCRVVault
 }
 
 DECIMALS = 18
@@ -81,6 +83,46 @@ def get_contract(contract_name):
                 f"brownie run scripts/deploy_mocks.py --network {network.show_active()}"
             )
     return contract
+
+
+def fund_with_link(
+    contract_address, account=None, link_token=None, amount=1000000000000000000
+):
+    account = account if account else get_account()
+    link_token = link_token if link_token else get_contract("link_token")
+    ### Keep this line to show how it could be done without deploying a mock
+    # tx = interface.LinkTokenInterface(link_token.address).transfer(
+    #     contract_address, amount, {"from": account}
+    # )
+    tx = link_token.transfer(contract_address, amount, {"from": account})
+    print("Funded {}".format(contract_address))
+    return tx
+
+
+def deploy_mocks(decimals=DECIMALS, initial_value=INITIAL_VALUE):
+    """
+    Use this script if you want to deploy mocks to a testnet
+    """
+    print(f"The active network is {network.show_active()}")
+    print("Deploying Mocks...")
+    account = get_account()
+    print("Deploying Mock Link Token...")
+    link_token = LinkToken.deploy({"from": account})
+    print("Deploying Mock Price Feed...")
+    mock_price_feed = MockV3Aggregator.deploy(
+        decimals, initial_value, {"from": account}
+    )
+    print(f"Deployed to {mock_price_feed.address}")
+    print("Deploying Mock VRFCoordinator...")
+    mock_vrf_coordinator = VRFCoordinatorV2Mock.deploy(
+        BASE_FEE, GAS_PRICE_LINK, {"from": account}
+    )
+    print(f"Deployed to {mock_vrf_coordinator.address}")
+
+    print("Deploying Mock Oracle...")
+    mock_oracle = MockOracle.deploy(link_token.address, {"from": account})
+    print(f"Deployed to {mock_oracle.address}")
+    print("Mocks Deployed!")
 
 
 def listen_for_event(brownie_contract, event, timeout=200, poll_interval=2):

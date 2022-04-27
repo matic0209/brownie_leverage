@@ -12,7 +12,7 @@ contract TokenInterfaceERC20{
   function generateTokens(address _owner, uint _amount) public returns(bool);
 }
 
-contract EFCRVVault is Ownable, ReentrancyGuard{
+contract EFLeverVault is Ownable, ReentrancyGuard{
   using SafeERC20 for IERC20;
   using SafeMath for uint256;
   using Address for address;
@@ -31,13 +31,13 @@ contract EFCRVVault is Ownable, ReentrancyGuard{
   uint256 temp;
 
 
-  address public constant aave = address(0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9);
-  address public constant balancer = address(0xBA12222222228d8Ba445958a75a0704d566BF2C8);
-  address public constant balancer_fee = address(0xce88686553686DA562CE7Cea497CE749DA109f9F);
-  address public constant lido = address(0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84);
-  address public constant asteth = address(0x1982b2F5814301d4e9a8b0201555376e62F82428);
-  address public constant curve_pool = address(0xDC24316b9AE028F1497c275EB9192a3Ea0f67022);
-  address public constant weth = address(0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2);
+  address public aave = address(0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9);
+  address public balancer = address(0xBA12222222228d8Ba445958a75a0704d566BF2C8);
+  address public balancer_fee = address(0xce88686553686DA562CE7Cea497CE749DA109f9F);
+  address public lido = address(0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84);
+  address public asteth = address(0x1982b2F5814301d4e9a8b0201555376e62F82428);
+  address public curve_pool = address(0xDC24316b9AE028F1497c275EB9192a3Ea0f67022);
+  address public weth = address(0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2);
 
   bool is_paused;
 
@@ -47,20 +47,15 @@ contract EFCRVVault is Ownable, ReentrancyGuard{
     mlr = 6750;
     last_earn_block = block.number;
   }
-  /*
-  function initAddresses(address[11] memory addr) public onlyOwner{
-    crv = addr[0];
-    usdc = addr[1];
-    eth_usdc_router = addr[2];
-    weth = addr[3];
-    cvxcrv = addr[4];
-    eth_crv_router = addr[5];
-    crv_cvxcrv_router = addr[6];
-    eth_usdt_router = addr[7];
-    usdt = addr[8];
-    oracle = addr[9];
-    staker = addr[10];
-  }*/
+  function initAddresses(address[7] memory addr) public onlyOwner{
+    aave = addr[0];
+    balancer = addr[1];
+    balancer_fee = addr[2];
+    lido = addr[3];
+    asteth = addr[4];
+    curve_pool = addr[5];
+    weth = addr[6];
+  }
 
   function receiveFlashLoan(
         IERC20[] memory tokens,
@@ -81,9 +76,9 @@ contract EFCRVVault is Ownable, ReentrancyGuard{
         }
     }
 
-  event EFDeposit(address from, uint256 eth_amount, uint256 ef_amount, uint256 virtual_price);
+  event CFFDeposit(address from, uint256 eth_amount, uint256 ef_amount, uint256 virtual_price);
 
-  function getFeePara() public view returns(uint256){
+  function getFeeParam() public view returns(uint256){
     return IBalancerFee(balancer_fee).getFlashLoanFeePercentage().safeDiv(1e14).safeAdd(ratio_base); //10000(1+fee/1e18) 
   }
 
@@ -107,18 +102,24 @@ contract EFCRVVault is Ownable, ReentrancyGuard{
     require(!is_paused, "paused");
     require(_amount == msg.value, "inconsist amount");
     require(_amount != 0, "too small amount");
+    
     uint256 volume_before = getVolume();
     if (volume_before == 0) {require(_amount >= 1e16, "Too small initial amount");}
 
-    uint256 fee_para = getFeePara();
+    uint256 fee_para = getFeeParam();
     uint256 loan_amount = mlr.safeMul(_amount).safeDiv(fee_para.safeSub(mlr));//mx/(a-m)
 
-    address[] memory tokens;
-    uint256[] memory amounts;
+    address[] memory tokens = new address[](1);
+    uint256[] memory amounts = new uint256[](1);
+      
     bytes memory userData = "0x1";
+
     tokens[0] = weth;
+        require(false, "123123123123");
     amounts[0] = loan_amount;
-    IBalancer(balancer).flashLoan(address(this), tokens, amounts, userData);
+
+    //IBalancer(balancer).flashLoan(address(this), tokens, amounts, userData);
+    
     uint256 ef_amount;
     if ((volume_before == 0)){
       ef_amount = _amount;
@@ -127,7 +128,7 @@ contract EFCRVVault is Ownable, ReentrancyGuard{
       ef_amount = _amount.safeMul(IERC20(ef_token).totalSupply()).safeDiv(volume_before);
     }
     TokenInterfaceERC20(ef_token).generateTokens(msg.sender, ef_amount);
-    emit EFDeposit(msg.sender, _amount, ef_amount, getVirtualPrice());
+    emit CFFDeposit(msg.sender, _amount, ef_amount, getVirtualPrice());
   }
 
   function _deposit(uint256 amount, uint256 fee_amount) internal{
@@ -187,7 +188,7 @@ contract EFCRVVault is Ownable, ReentrancyGuard{
     IWETH(weth).deposit(amount.safeAdd(fee_amount));
     IERC20(weth).safeTransfer(balancer, amount.safeAdd(fee_amount));
   }
-  event Pause(uint256 eth_amount, uint256 virtual_price);
+  event EFPause(uint256 eth_amount, uint256 virtual_price);
   function pause() public onlyOwner{
     require(!is_paused, "paused");
     //uint256 user_collecteral = getCollecteral().safeMul(_amount).safeDiv(IERC20(ef_token).totalSupply());
@@ -200,7 +201,7 @@ contract EFCRVVault is Ownable, ReentrancyGuard{
     amounts[0] = loan_amount;
     //uint256 user_eth_before = msg.sender.balance;
     IBalancer(balancer).flashLoan(address(this), tokens, amounts, userData);
-    emit Pause(address(this).balance, getVirtualPrice());
+    emit EFPause(address(this).balance, getVirtualPrice());
   }
 
   /*function _pause(uint256 amount, uint256 fee_amount) internal{
@@ -214,12 +215,12 @@ contract EFCRVVault is Ownable, ReentrancyGuard{
     IERC20(weth).safeTransfer(balancer, amount.safeAdd(fee_amount));
   }*/
 
-  event Restart(uint256 eth_amount, uint256 virtual_price);
+  event EFRestart(uint256 eth_amount, uint256 virtual_price);
   function restart() public onlyOwner{
     require(is_paused, "not pause");
 
     uint256 _amount = address(this).balance;
-    uint256 fee_para = getFeePara();
+    uint256 fee_para = getFeeParam();
     uint256 loan_amount = mlr.safeMul(_amount).safeDiv(fee_para.safeSub(mlr));//mx/(a-m)
 
     address[] memory tokens;
@@ -228,7 +229,7 @@ contract EFCRVVault is Ownable, ReentrancyGuard{
     tokens[0] = weth;
     amounts[0] = loan_amount;
     IBalancer(balancer).flashLoan(address(this), tokens, amounts, userData);
-    emit Restart(_amount, getVirtualPrice());
+    emit EFRestart(_amount, getVirtualPrice());
   }
 
 
@@ -273,7 +274,7 @@ contract EFCRVVault is Ownable, ReentrancyGuard{
 
     emit ActualLTVChanged(e, st, getDebt(), getCollecteral());
   }
-  event EarnReward(uint256 eth_amount, uint256 ef_amount);
+  event EFEarnReward(uint256 eth_amount, uint256 ef_amount);
   function earnReward() public onlyOwner{
     if (fee_pool == address(0x0)) return;
     uint256 len = block.number.safeSub(last_earn_block);
@@ -292,7 +293,7 @@ contract EFCRVVault is Ownable, ReentrancyGuard{
     last_volume = getVolume();
     last_earn_block = block.number;
 
-    emit EarnReward(st_fee, ef_amount);
+    emit EFEarnReward(st_fee, ef_amount);
   }
 
   event ChangeMaxLoanRate(uint256 old, uint256 _new);
@@ -319,13 +320,13 @@ contract EFCRVVault is Ownable, ReentrancyGuard{
   function() external payable{}
   }
 
-contract EFCRVVaultFactory{
-  event NewCFVault(address addr);
+contract EFLeverVaultFactory{
+  event NewEFLeverVault(address addr);
 
-  function createCFVault(address _ef_token) public returns(address){
-    EFCRVVault cf = new EFCRVVault(_ef_token);
+  function createEFLeverVault(address _ef_token) public returns(address){
+    EFLeverVault cf = new EFLeverVault(_ef_token);
     cf.transferOwnership(msg.sender);
-    emit NewCFVault(address(cf));
+    emit NewEFLeverVault(address(cf));
     return address(cf);
   }
 
