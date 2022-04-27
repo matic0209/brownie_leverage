@@ -37,7 +37,7 @@ def test_can_get_latest_price(deploy_safeerc20,deploy_addressArray,deploy_tl,get
 
 
     log("1")
-    deploy_vault.deposit(Wei("10 ether"), {"from": account, "gas_price": 100, "gas_limit": 3000000, "allow_revert": True})
+    deploy_vault.deposit(Wei("10 ether"), {"from": account, "gas_price": 100, "gas_limit": 3000000, "allow_revert": True,"value": Wei("10 ether")})
 
 
     # log("balance of crv", str(balance))

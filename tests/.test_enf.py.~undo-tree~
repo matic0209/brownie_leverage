@@ -1,5 +1,5 @@
 (undo-tree-save-format-version . 1)
-"3221c15a7dbf3d5d06d5b0843afa4b29c37ecda0"
+"438c01aedc42faf1171698641fa3a760f55e558e"
 [nil nil nil nil (25193 29290 970749 0) 0 nil]
 ([nil nil ((291 . 296) (t 25193 28607 704018 983000)) nil (25193 29290 970748 0) 0 nil])
 ([nil nil ((296 . 298)) nil (25193 29290 970748 0) 0 nil])
@@ -70,5 +70,7 @@ nil
 ([nil nil ((#("a" 0 1 (fontified t)) . -1139) (undo-tree-id1707 . -1) (undo-tree-id1708 . -1) (#("c" 0 1 (fontified t)) . -1140) (undo-tree-id1709 . -1) (#("c" 0 1 (fontified t)) . -1141) (undo-tree-id1710 . -1) (#("o" 0 1 (fontified t)) . -1142) (undo-tree-id1711 . -1) (#("u" 0 1 (fontified t)) . -1143) (undo-tree-id1712 . -1) (#("n" 0 1 (fontified t)) . -1144) (undo-tree-id1713 . -1) (#("t" 0 1 (fontified t)) . -1145) (undo-tree-id1714 . -1) (#("," 0 1 (fontified t)) . -1146) (undo-tree-id1715 . -1) 1147) nil (25193 29869 116337 0) 0 nil])
 ([nil nil ((#(")" 0 1 (fontified nil ws-butler-chg delete face (rainbow-delimiters-depth-1-face))) . 1140) (undo-tree-id1703 . -1) (undo-tree-id1704 . -1) (undo-tree-id1705 . 1) (undo-tree-id1706 . -1) (1139 . 1140) (#(" " 0 1 (fontified nil ws-butler-chg chg)) . -1139) (1139 . 1140) (#(")" 0 1 (fontified nil face (rainbow-delimiters-depth-1-face) ws-butler-chg chg)) . -1139) (1139 . 1140)) nil (25193 29869 116328 0) 0 nil])
 ([nil nil ((1140 . 1145) (t 25193 29869 119182 32000)) nil (25193 29874 184570 0) 0 nil])
-([nil current ((1145 . 1173)) nil (25193 29874 184567 0) 0 nil])
+([nil nil ((1145 . 1173)) nil (25193 29874 184567 0) 0 nil])
+([nil nil ((945 . 947) (944 . 946) (#("\"" 0 1 (fontified nil ws-butler-chg chg)) . -944) (943 . 945) (t 25193 29874 187180 827000)) nil (25193 30104 276723 0) 0 nil])
+([nil current ((947 . 970) (#("\"})" 0 1 (fontified t ws-butler-chg chg face font-lock-string-face) 1 2 (fontified t ws-butler-chg delete face (rainbow-delimiters-depth-2-face)) 2 3 (fontified t face (rainbow-delimiters-depth-1-face))) . 947) (undo-tree-id1736 . -3) (undo-tree-id1737 . -1) (undo-tree-id1738 . 3) (undo-tree-id1739 . -1) (undo-tree-id1740 . 3)) nil (25193 30104 276719 0) 0 nil])
 nil
