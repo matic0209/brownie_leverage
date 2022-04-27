@@ -27,7 +27,7 @@ contract_to_mock = {
     "usdc": ERC20Token,
     "crv": ERC20Token,
     "ef-token":ERC20Token,
-    "vault":EFCRVVault
+
 }
 
 DECIMALS = 18
