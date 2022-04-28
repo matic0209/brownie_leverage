@@ -1,5 +1,5 @@
 (undo-tree-save-format-version . 1)
-"29496263c2e14ed9dd22ef145e794ce446b06430"
+"59726b2ac838b6eaac9c14d57a9906f330b5d27c"
 [nil nil nil nil (25193 29290 970749 0) 0 nil]
 ([nil nil ((291 . 296) (t 25193 28607 704018 983000)) nil (25193 29290 970748 0) 0 nil])
 ([nil nil ((296 . 298)) nil (25193 29290 970748 0) 0 nil])
@@ -108,5 +108,315 @@ nil
 ([nil nil ((1396 . 1400)) nil (25193 63728 843239 0) 0 nil])
 ([nil nil ((#("e" 0 1 (fontified t ws-butler-chg chg)) . -1293) (undo-tree-id1816 . -1) (undo-tree-id1817 . -1) (undo-tree-id1818 . -1) (undo-tree-id1819 . -1) (undo-tree-id1820 . -1) (undo-tree-id1821 . -1) (undo-tree-id1822 . -1) (undo-tree-id1823 . -1) (undo-tree-id1824 . -1) (undo-tree-id1825 . -1) (undo-tree-id1826 . -1) (undo-tree-id1827 . -1) (undo-tree-id1828 . -1) (undo-tree-id1829 . -1) (undo-tree-id1830 . -1) (undo-tree-id1831 . -1) (undo-tree-id1832 . -1) (undo-tree-id1833 . -1) (undo-tree-id1834 . -1) (undo-tree-id1835 . -1) (undo-tree-id1836 . -1) (undo-tree-id1837 . -1) (undo-tree-id1838 . -1) (undo-tree-id1839 . -1) (undo-tree-id1840 . -1) (undo-tree-id1841 . -1) (undo-tree-id1842 . -1) (undo-tree-id1843 . -1) (1293 . 1294) (#("a" 0 1 (fontified t)) . -1293) (undo-tree-id1844 . -1) (undo-tree-id1845 . -1) (t 25193 63728 847201 118000)) nil (25193 63878 284202 0) 0 nil])
 ([nil nil ((1293 . 1294)) nil (25193 63878 284171 0) 0 nil])
-([nil current ((1294 . 1295) (t 25193 63878 288324 621000)) nil (25193 63890 158979 0) 0 nil])
+([nil nil ((1294 . 1295) (t 25193 63878 288324 621000)) nil (25193 63890 158979 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t)) . 320) (undo-tree-id0 . -1) (undo-tree-id1 . -1) (undo-tree-id2 . -1) (undo-tree-id3 . -1) (t 25193 63890 161781 401000)) nil (25194 13211 352723 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t)) . 319) (undo-tree-id4 . -1) (undo-tree-id5 . -1) (undo-tree-id6 . -1) (undo-tree-id7 . -1) (undo-tree-id8 . -1) (undo-tree-id9 . -1) (undo-tree-id10 . -1) (undo-tree-id11 . -1) (undo-tree-id12 . -1) (undo-tree-id13 . -1) (undo-tree-id14 . -1) (undo-tree-id15 . -1) (undo-tree-id16 . -1) (undo-tree-id17 . -1) (undo-tree-id18 . -1) (undo-tree-id19 . -1) (undo-tree-id20 . -1) (undo-tree-id21 . -1) (undo-tree-id22 . -1) (undo-tree-id23 . -1) (undo-tree-id24 . -1) (undo-tree-id25 . -1) (undo-tree-id26 . -1) (undo-tree-id27 . -1) (undo-tree-id28 . -1) (undo-tree-id29 . -1) (undo-tree-id30 . -1) (undo-tree-id31 . -1) (undo-tree-id32 . -1) (undo-tree-id33 . -1) (undo-tree-id34 . -1) (undo-tree-id35 . -1) (undo-tree-id36 . -1) (undo-tree-id37 . -1) (undo-tree-id38 . -1) (undo-tree-id39 . -1) (undo-tree-id40 . -1) (undo-tree-id41 . -1) (undo-tree-id42 . -1) (undo-tree-id43 . -1) (undo-tree-id44 . -1) (undo-tree-id45 . -1) (undo-tree-id46 . -1) (undo-tree-id47 . -1) (undo-tree-id48 . -1) (undo-tree-id49 . -1) (undo-tree-id50 . -1) (undo-tree-id51 . -1) (undo-tree-id52 . -1) (undo-tree-id53 . -1) (undo-tree-id54 . -1) (undo-tree-id55 . -1) (undo-tree-id56 . -1) (undo-tree-id57 . -1) (undo-tree-id58 . -1) (undo-tree-id59 . -1) (undo-tree-id60 . -1) (undo-tree-id61 . -1) (undo-tree-id62 . -1) (undo-tree-id63 . -1) (undo-tree-id64 . -1) (undo-tree-id65 . -1) (undo-tree-id66 . -1) (undo-tree-id67 . -1) (undo-tree-id68 . -1) (undo-tree-id69 . -1) (undo-tree-id70 . -1) (undo-tree-id71 . -1) (undo-tree-id72 . -1) (undo-tree-id73 . -1) (undo-tree-id74 . -1) (undo-tree-id75 . -1) (undo-tree-id76 . -1) (undo-tree-id77 . -1) (undo-tree-id78 . -1) (undo-tree-id79 . -1) (undo-tree-id80 . -1) (undo-tree-id81 . -1) (undo-tree-id82 . 1) (undo-tree-id83 . 1) (undo-tree-id84 . -1) (t 25194 13211 355870 669000)) nil (25194 13213 554302 0) 0 nil])
+([nil nil ((820 . 825) (t 25194 13213 556914 12000)) nil (25194 13244 986970 0) 0 nil])
+([nil nil ((#("l" 0 1 (ws-butler-chg chg fontified t)) . -825) (undo-tree-id181 . -1) (825 . 826)) nil (25194 13244 986970 0) 0 nil])
+([nil nil ((#("log(\"1\")" 0 3 (fontified t) 3 4 (face (rainbow-delimiters-depth-1-face) fontified t) 4 7 (face font-lock-string-face fontified t) 7 8 (face (rainbow-delimiters-depth-1-face) fontified t)) . 812)) nil (25194 13244 986969 0) 0 nil])
+([nil nil ((#("log(\"add _asset \")" 0 3 (fontified t) 3 4 (face (rainbow-delimiters-depth-1-face) fontified t) 4 17 (face font-lock-string-face fontified t) 17 18 (face (rainbow-delimiters-depth-1-face) fontified t)) . 787)) nil (25194 13244 986968 0) 0 nil])
+([nil nil ((#("
+" 0 1 (ws-butler-chg delete fontified t)) . 787) (undo-tree-id178 . -1) (undo-tree-id179 . -1) (undo-tree-id180 . -1)) nil (25194 13244 986968 0) 0 nil])
+([nil nil ((#("
+" 0 1 (ws-butler-chg delete fontified t)) . 787) (undo-tree-id175 . -1) (undo-tree-id176 . -1) (undo-tree-id177 . -1)) nil (25194 13244 986964 0) 0 nil])
+([nil nil ((#("
+" 0 1 (ws-butler-chg delete fontified t)) . 787) (undo-tree-id172 . -1) (undo-tree-id173 . -1) (undo-tree-id174 . -1)) nil (25194 13244 986962 0) 0 nil])
+([nil nil ((#("    " 0 1 (ws-butler-chg delete fontified t) 1 4 (fontified t)) . 787)) nil (25194 13244 986960 0) 0 nil])
+([nil nil ((#("
+" 0 1 (ws-butler-chg delete fontified t)) . 787) (undo-tree-id169 . -1) (undo-tree-id170 . -1) (undo-tree-id171 . -1)) nil (25194 13244 986960 0) 0 nil])
+([nil nil ((#("    " 0 1 (fontified t ws-butler-chg delete) 1 4 (fontified t ws-butler-chg chg)) . 787)) nil (25194 13244 986958 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t ws-butler-chg delete)) . 787) (undo-tree-id166 . -1) (undo-tree-id167 . -1) (undo-tree-id168 . -1)) nil (25194 13244 986957 0) 0 nil])
+([nil nil ((784 . 788) (#("        " 0 4 (fontified nil) 4 5 (ws-butler-chg delete fontified nil) 5 8 (fontified nil)) . 783) (undo-tree-id85 . -8) (undo-tree-id86 . -7) (undo-tree-id87 . -6) (undo-tree-id88 . -7) (undo-tree-id89 . -6) (undo-tree-id90 . -7) (undo-tree-id91 . -7) (undo-tree-id92 . -7) (undo-tree-id93 . -7) (undo-tree-id94 . -7) (undo-tree-id95 . -7) (undo-tree-id96 . -7) (undo-tree-id97 . -7) (undo-tree-id98 . -7) (undo-tree-id99 . -7) (undo-tree-id100 . -7) (undo-tree-id101 . -7) (undo-tree-id102 . -7) (undo-tree-id103 . -7) (undo-tree-id104 . -7) (undo-tree-id105 . -7) (undo-tree-id106 . -7) (undo-tree-id107 . -7) (undo-tree-id108 . -7) (undo-tree-id109 . -7) (undo-tree-id110 . -7) (undo-tree-id111 . -8) (undo-tree-id112 . -7) (undo-tree-id113 . -8) (undo-tree-id114 . -8) (undo-tree-id115 . -8) (undo-tree-id116 . -8) (undo-tree-id117 . -8) (undo-tree-id118 . -8) (undo-tree-id119 . -8) (undo-tree-id120 . -8) (undo-tree-id121 . -8) (undo-tree-id122 . -8) (undo-tree-id123 . -8) (undo-tree-id124 . -8) (undo-tree-id125 . -8) (undo-tree-id126 . -8) (undo-tree-id127 . -8) (undo-tree-id128 . -8) (undo-tree-id129 . -8) (undo-tree-id130 . -8) (undo-tree-id131 . -8) (undo-tree-id132 . -8) (undo-tree-id133 . -8) (undo-tree-id134 . -8) (undo-tree-id135 . -8) (undo-tree-id136 . -8) (undo-tree-id137 . -8) (undo-tree-id138 . -8) (undo-tree-id139 . -8) (undo-tree-id140 . -8) (undo-tree-id141 . -8) (undo-tree-id142 . -8) (undo-tree-id143 . -8) (undo-tree-id144 . -8) (undo-tree-id145 . -8) (undo-tree-id146 . -8) (undo-tree-id147 . -8) (undo-tree-id148 . -8) (undo-tree-id149 . -8) (undo-tree-id150 . -8) (undo-tree-id151 . -8) (undo-tree-id152 . -8) (undo-tree-id153 . -8) (undo-tree-id154 . -8) (undo-tree-id155 . -8) (undo-tree-id156 . -8) (undo-tree-id157 . -8) (undo-tree-id158 . -8) (undo-tree-id159 . -8) (undo-tree-id160 . -8) (undo-tree-id161 . -8) (undo-tree-id162 . -8) (undo-tree-id163 . -8) (undo-tree-id164 . -8) (undo-tree-id165 . -8) (791 . 792)) nil (25194 13244 986951 0) 0 nil])
+([nil nil ((884 . 927) (#(" " 0 1 (fontified nil)) . 883) (undo-tree-id182 . -1) (undo-tree-id183 . -1) (884 . 885) (t 25194 13244 990250 136000)) nil (25194 13262 535647 0) 0 nil])
+([nil nil ((948 . 949) (t 25194 13262 538460 873000)) nil (25194 13270 848755 0) 0 nil])
+([nil nil ((862 . 905) (#(" " 0 1 (fontified nil)) . 861) (undo-tree-id184 . -1) (undo-tree-id185 . -1) (undo-tree-id186 . -1) (undo-tree-id187 . -1) (undo-tree-id188 . -1) (undo-tree-id189 . -1) (undo-tree-id190 . -1) (undo-tree-id191 . -1) (undo-tree-id192 . -1) (undo-tree-id193 . -1) (undo-tree-id194 . -1) (undo-tree-id195 . -1) (undo-tree-id196 . -1) (undo-tree-id197 . -1) (undo-tree-id198 . -1) (undo-tree-id199 . -1) (undo-tree-id200 . -1) (undo-tree-id201 . -1) (undo-tree-id202 . -1) (undo-tree-id203 . -1) (undo-tree-id204 . -1) (undo-tree-id205 . -1) (undo-tree-id206 . -1) (undo-tree-id207 . -1) (undo-tree-id208 . -1) (undo-tree-id209 . -1) (undo-tree-id210 . -1) (undo-tree-id211 . -1) (undo-tree-id212 . -1) (undo-tree-id213 . -1) (undo-tree-id214 . -1) (862 . 863) (t 25194 13270 851542 226000)) nil (25194 13278 234926 0) 0 nil])
+([nil nil ((992 . 1035) (#(" " 0 1 (fontified nil)) . 991) (undo-tree-id215 . -1) (undo-tree-id216 . -1) (992 . 993) (t 25194 13278 237697 356000)) nil (25194 13283 738398 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t)) . 1120) (undo-tree-id226 . -1) (undo-tree-id227 . -1) (undo-tree-id228 . -1) (t 25194 13283 741201 667000)) nil (25194 13293 55521 0) 0 nil])
+([nil nil ((#("    # log(\"balance of crv\", str(balance))" 0 1 (ws-butler-chg delete fontified t) 1 4 (fontified t) 4 6 (face font-lock-comment-delimiter-face fontified t) 6 41 (face font-lock-comment-face fontified t)) . 1120)) nil (25194 13293 55520 0) 0 nil])
+([nil nil ((#("
+" 0 1 (ws-butler-chg delete fontified t)) . 1120) (undo-tree-id223 . -1) (undo-tree-id224 . -1) (undo-tree-id225 . -1)) nil (25194 13293 55519 0) 0 nil])
+([nil nil ((#("
+" 0 1 (ws-butler-chg delete fontified t)) . 1120) (undo-tree-id220 . -1) (undo-tree-id221 . -1) (undo-tree-id222 . -1)) nil (25194 13293 55517 0) 0 nil])
+([nil nil ((#("    # balance = deploy_ef.balanceOf(account_crv, {\"from\": account})" 0 1 (ws-butler-chg delete fontified t) 1 4 (fontified t) 4 6 (face font-lock-comment-delimiter-face fontified t) 6 67 (face font-lock-comment-face fontified t)) . 1120)) nil (25194 13293 55516 0) 0 nil])
+([nil nil ((#("
+" 0 1 (ws-butler-chg delete fontified t)) . 1120) (undo-tree-id217 . -1) (undo-tree-id218 . -1) (undo-tree-id219 . -1)) nil (25194 13293 55515 0) 0 nil])
+([nil nil ((#("    # log(\"balance of enf\", str(balance))" 0 1 (ws-butler-chg delete fontified t) 1 4 (fontified t) 4 6 (face font-lock-comment-delimiter-face fontified t) 6 41 (face font-lock-comment-face fontified t)) . 1120)) nil (25194 13293 55508 0) 0 nil])
+([nil nil ((1081 . 1082)) nil (25194 13293 55505 0) 0 nil])
+([nil nil ((1061 . 1066) (t 25194 13293 58092 890000)) nil (25194 13312 148233 0) 0 nil])
+([nil nil ((#("w" 0 1 (ws-butler-chg chg fontified t)) . -1066) (undo-tree-id296 . -1) (#("a" 0 1 (ws-butler-chg chg fontified t)) . -1067) (undo-tree-id297 . -1) (#("i" 0 1 (ws-butler-chg chg fontified t)) . -1068) (undo-tree-id298 . -1) (#("t" 0 1 (ws-butler-chg chg fontified t)) . -1069) (undo-tree-id299 . -1) (1066 . 1070)) nil (25194 13312 148232 0) 0 nil])
+([nil nil ((#("h" 0 1 (ws-butler-chg chg fontified t)) . -1066) (undo-tree-id295 . -1) (1066 . 1067)) nil (25194 13312 148229 0) 0 nil])
+([nil nil ((#("    " 0 4 (ws-butler-chg chg fontified t)) . 1062) (undo-tree-id229 . -4) (undo-tree-id230 . -4) (undo-tree-id231 . -4) (undo-tree-id232 . -4) (undo-tree-id233 . -4) (undo-tree-id234 . -4) (undo-tree-id235 . -4) (undo-tree-id236 . -4) (undo-tree-id237 . -4) (undo-tree-id238 . -4) (undo-tree-id239 . -4) (undo-tree-id240 . -4) (undo-tree-id241 . -4) (undo-tree-id242 . -4) (undo-tree-id243 . -4) (undo-tree-id244 . -4) (undo-tree-id245 . -4) (undo-tree-id246 . -4) (undo-tree-id247 . -4) (undo-tree-id248 . -4) (undo-tree-id249 . -4) (undo-tree-id250 . -4) (undo-tree-id251 . -4) (undo-tree-id252 . -4) (undo-tree-id253 . -4) (undo-tree-id254 . -4) (undo-tree-id255 . -4) (undo-tree-id256 . -4) (undo-tree-id257 . -4) (undo-tree-id258 . -4) (undo-tree-id259 . -4) (undo-tree-id260 . -4) (undo-tree-id261 . -4) (undo-tree-id262 . -4) (undo-tree-id263 . -4) (undo-tree-id264 . -4) (undo-tree-id265 . -4) (undo-tree-id266 . -4) (undo-tree-id267 . -4) (undo-tree-id268 . -4) (undo-tree-id269 . -4) (undo-tree-id270 . -4) (undo-tree-id271 . -4) (undo-tree-id272 . -4) (undo-tree-id273 . -4) (undo-tree-id274 . -4) (undo-tree-id275 . -4) (undo-tree-id276 . -4) (undo-tree-id277 . -4) (undo-tree-id278 . -4) (undo-tree-id279 . -4) (undo-tree-id280 . -4) (undo-tree-id281 . -4) (undo-tree-id282 . -4) (undo-tree-id283 . -4) (undo-tree-id284 . -4) (undo-tree-id285 . -4) (undo-tree-id286 . -4) (undo-tree-id287 . -4) (undo-tree-id288 . -4) (undo-tree-id289 . -4) (undo-tree-id290 . -4) (undo-tree-id291 . -4) (undo-tree-id292 . -4) (undo-tree-id293 . -4) (undo-tree-id294 . -4)) nil (25194 13312 148224 0) 0 nil])
+([nil nil ((1062 . 1067) (t 25194 13312 151290 982000)) nil (25194 13325 714005 0) 0 nil])
+([nil nil ((nil rear-nonsticky nil 1219 . 1220) (nil fontified nil 1185 . 1220) (nil fontified nil 1183 . 1185) (nil fontified nil 1180 . 1183) (nil fontified nil 1179 . 1180) (nil fontified nil 1178 . 1179) (nil fontified nil 1117 . 1178) (nil fontified nil 1115 . 1117) (nil fontified nil 1112 . 1115) (nil fontified nil 1111 . 1112) (nil fontified nil 1110 . 1111) (nil fontified nil 1109 . 1110) (nil fontified nil 1074 . 1109) (nil fontified nil 1072 . 1074) (nil fontified nil 1069 . 1072) (nil fontified nil 1068 . 1069) (nil fontified nil 1067 . 1068) (1067 . 1220)) nil (25194 13325 714004 0) 0 nil])
+([nil nil ((1220 . 1225)) nil (25194 13325 714001 0) 0 nil])
+([nil nil ((nil rear-nonsticky nil 1295 . 1296) (nil fontified nil 1225 . 1296) (1225 . 1296)) nil (25194 13325 714000 0) 0 nil])
+([nil nil ((#("    " 0 4 (ws-butler-chg chg fontified t)) . 1063) (undo-tree-id300 . -4) (undo-tree-id301 . -4) 1296) nil (25194 13325 713997 0) 0 nil])
+([nil nil ((#("brownie_contract" 0 16 (fontified t)) . 1238) (undo-tree-id305 . -16) (undo-tree-id306 . -4) (undo-tree-id307 . -4) (undo-tree-id308 . -16) (t 25194 13325 716924 668000)) nil (25194 13352 992203 0) 0 nil])
+([nil nil ((1238 . 1241)) nil (25194 13352 992201 0) 0 nil])
+([nil nil ((1241 . 1246)) nil (25194 13352 992200 0) 0 nil])
+([nil nil ((1246 . 1247)) nil (25194 13352 992199 0) 0 nil])
+([nil nil ((1238 . 1250) (#("de" 0 2 (ws-butler-chg chg fontified nil)) . -1238) (1238 . 1240) (#("deploy_vault" 0 12 (ws-butler-chg chg fontified nil)) . -1238) (1238 . 1250) (#("deploy_va" 0 9 (ws-butler-chg chg fontified t)) . -1238) (undo-tree-id302 . -9) (undo-tree-id303 . -9) (undo-tree-id304 . -9) 1247) nil (25194 13352 992196 0) 0 nil])
+([nil nil ((#("e" 0 1 (fontified t)) . -1252) (undo-tree-id8 . -1) (undo-tree-id9 . -1) (#("v" 0 1 (fontified t)) . -1253) (undo-tree-id10 . -1) (undo-tree-id11 . -1) (#("e" 0 1 (fontified t)) . -1254) (undo-tree-id12 . -1) (undo-tree-id13 . -1) (#("n" 0 1 (fontified t)) . -1255) (undo-tree-id14 . -1) (#("t" 0 1 (fontified t)) . -1256) (undo-tree-id15 . -1) 1257 (t 25194 13352 995612 227000)) nil (25194 13421 702323 0) 0 nil])
+([nil nil ((1252 . 1254) (#("\"" 0 1 (ws-butler-chg chg fontified nil)) . -1252) (1252 . 1253)) nil (25194 13421 702318 0) 0 nil])
+([nil nil ((nil rear-nonsticky nil 1262 . 1263) (nil fontified nil 1253 . 1263) (1253 . 1263)) nil (25194 13421 702317 0) 0 nil])
+([nil nil ((#("l" 0 1 (ws-butler-chg delete fontified t)) . 1271) (#("a" 0 1 (ws-butler-chg delete fontified t)) . 1271) (#("v" 0 1 (ws-butler-chg delete fontified t)) . 1271) (#("r" 0 1 (ws-butler-chg delete fontified t)) . 1271) (#("e" 0 1 (ws-butler-chg delete fontified t)) . 1271) (#("t" 0 1 (ws-butler-chg delete fontified t)) . 1271) (#("n" 0 1 (ws-butler-chg delete fontified t)) . 1271) (#("i" 0 1 (ws-butler-chg delete fontified t)) . 1271) (#("_" 0 1 (ws-butler-chg delete fontified t)) . 1271) (#("l" 0 1 (ws-butler-chg delete fontified t)) . 1271) (#("l" 0 1 (ws-butler-chg delete fontified t)) . 1271) (#("o" 0 1 (ws-butler-chg delete fontified t)) . 1271) (#("p" 0 1 (fontified t)) . 1271) (#("t" 0 1 (fontified t)) . -1266) (undo-tree-id0 . -1) (#("i" 0 1 (fontified t)) . -1267) (undo-tree-id1 . -1) (#("m" 0 1 (fontified t)) . -1268) (undo-tree-id2 . -1) (#("e" 0 1 (fontified t)) . -1269) (undo-tree-id3 . -1) (#("o" 0 1 (fontified t)) . -1270) (undo-tree-id4 . -1) (#("u" 0 1 (fontified t)) . -1271) (undo-tree-id5 . -1) (#("t" 0 1 (fontified t)) . -1272) (undo-tree-id6 . -1) (#("=" 0 1 (fontified t)) . -1273) (undo-tree-id7 . -1) 1274) nil (25194 13421 702314 0) 0 nil])
+([nil nil ((#("=" 0 1 (ws-butler-chg delete fontified t)) . 1271)) nil (25194 13421 702279 0) 0 nil])
+([nil nil ((99 . 102) (t 25194 13421 705344 945000)) nil (25194 13435 553110 0) 0 nil])
+([nil nil ((100 . 116) (#("li" 0 2 (ws-butler-chg chg fontified nil)) . -100) (100 . 102) (#("listen_for_event(brownie_contract, event, timeout, poll_interval)" 0 65 (ws-butler-chg chg fontified nil)) . -100) (100 . 165) (#("li" 0 2 (ws-butler-chg chg fontified t)) . -100) (undo-tree-id16 . -2) (undo-tree-id17 . -2) (undo-tree-id18 . -1) (undo-tree-id19 . -2) (undo-tree-id20 . -1) (undo-tree-id21 . -2) (undo-tree-id22 . -2) (undo-tree-id23 . -2) (undo-tree-id24 . -2) (undo-tree-id25 . -2) (undo-tree-id26 . -2) (undo-tree-id27 . -2) (undo-tree-id28 . -2) (undo-tree-id29 . -2) (undo-tree-id30 . -2) (undo-tree-id31 . -2) (undo-tree-id32 . -2) (undo-tree-id33 . -2) (undo-tree-id34 . -2) (undo-tree-id35 . -2) (undo-tree-id36 . -2) (undo-tree-id37 . -2) (undo-tree-id38 . -2) (undo-tree-id39 . -2) (undo-tree-id40 . -2) (undo-tree-id41 . -2) (undo-tree-id42 . -2) (undo-tree-id43 . -2) (undo-tree-id44 . -2) (undo-tree-id45 . -2) (undo-tree-id46 . -2) (undo-tree-id47 . -2) (undo-tree-id48 . -2) (undo-tree-id49 . -2) (undo-tree-id50 . -2) 102) nil (25194 13435 553106 0) 0 nil])
+([nil nil ((37 . 6869) (#("
+from scripts.helpful_scripts import get_account, get_contract,listen_for_event
+from conftest import *
+from brownie import (
+    Wei,
+    accounts,
+    Contract,
+    config,
+    network,
+    ERC20TokenFactory,
+    AddressArray,
+    ERC20Token,
+    TrustListFactory,
+    TrustList,
+    EFLeverVault,
+
+)
+def log(text, desc=''):
+    print('\\033[32m' + text + '\\033[0m' + desc)
+
+def test_can_get_latest_price(deploy_safeerc20,deploy_addressArray,deploy_tl,gett_token_tl,deploy_el,deploy_vault):
+    # Arrange
+
+    # address = get_contract(\"eth_usd_price_feed\").address
+    # # Act
+    # price_feed = PriceFeedConsumer.deploy(address, {\"from\": get_account()})
+    # # Assert
+    # value = price_feed.getLatestPrice({\"from\": get_account()})
+
+
+    account = accounts[0]
+
+    deploy_vault.deposit(Wei(\"10 ether\"), {\"from\": account, \"gas_price\": 100,
+                                           \"gas_limit\": 3000000,
+                                           \"allow_revert\": True,
+                                           \"value\": Wei(\"10 ether\")})
+
+
+    # log(\"balance of crv\", str(balance))
+
+    # balance = deploy_ef.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of enf\", str(balance))
+    listen_for_event(deploy_vault, \"CFFDeposit\", 200, 2)
+    log(\"ef balance \", str(deploy_el.balanceOf(account)))
+
+
+
+    volumne = deploy_vault.getVolume()
+    log(\"volumne\", str(volumne))
+    collateral = deploy_vault.getCollecteral()
+    log(\"collateral\", str(collateral))
+    debt = deploy_vault.getDebt()
+    log(\"Debt \", str(debt))
+
+
+
+    # log(\"1\")
+    # deploy_vault.deposit(deposit_amount, {\"from\": account_crv})
+
+    # balance = crv.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of crv\", str(balance))
+
+    # balance = deploy_ef.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of enf\", str(balance))
+
+
+    # log(\"2\")
+    # deploy_vault.deposit(deposit_amount, {\"from\": account_crv})
+
+    # balance = crv.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of crv\", str(balance))
+
+    # balance = deploy_ef.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of enf\", str(balance))
+
+    # log(\"3\")
+    # deploy_vault.deposit(deposit_amount, {\"from\": account_crv})
+
+    # balance = crv.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of crv\", str(balance))
+
+    # balance = deploy_ef.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of enf\", str(balance))
+
+    # log(\" deposit 1\")
+    # deploy_vault.deposit(deposit_amount, {\"from\": account_crv})
+
+    # balance = crv.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of crv\", str(balance))
+
+    # balance = deploy_ef.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of enf\", str(balance))
+
+    # log(\"deposit 2\")
+    # deploy_vault.deposit(deposit_amount, {\"from\": account_crv})
+
+    # balance = crv.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of crv\", str(balance))
+
+    # balance = deploy_ef.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of enf\", str(balance))
+
+    # log(\"deposit 3\")
+    # deploy_vault.deposit(deposit_amount, {\"from\": account_crv})
+
+    # balance = crv.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of crv\", str(balance))
+
+    # balance = deploy_ef.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of enf\", str(balance))
+
+    # log(\"deposit 4\")
+    # deploy_vault.deposit(deposit_amount, {\"from\": account_crv})
+
+    # balance = crv.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of crv\", str(balance))
+
+    # balance = deploy_ef.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of enf\", str(balance))
+
+
+    # withdraw_amount = balance/10
+    # log(\"withdraw 1\")
+    # tx = deploy_vault.withdraw(withdraw_amount, False, {\"from\": account_crv})
+    # tx.wait(1)
+    # balance = deploy_ef.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of enf after withdraw\", str(balance))
+    # balance = crv.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of crv after withdraw\", str(balance))
+
+
+    # log(\"withdraw 2\")
+    # tx = deploy_vault.withdraw(withdraw_amount, False, {\"from\": account_crv})
+    # tx.wait(1)
+    # balance = deploy_ef.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of enf after withdraw\", str(balance))
+    # balance = crv.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of crv after withdraw\", str(balance))
+
+    # log(\"withdraw 3\")
+    # tx = deploy_vault.withdraw(withdraw_amount, False, {\"from\": account_crv})
+    # tx.wait(1)
+    # balance = deploy_ef.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of enf after withdraw\", str(balance))
+    # balance = crv.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of crv after withdraw\", str(balance))
+
+    # log(\"withdraw 4\")
+    # tx = deploy_vault.withdraw(withdraw_amount, False, {\"from\": account_crv})
+    # tx.wait(1)
+    # balance = deploy_ef.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of enf after withdraw\", str(balance))
+    # balance = crv.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of crv after withdraw\", str(balance))
+
+    # log(\"withdraw 5\")
+    # tx = deploy_vault.withdraw(withdraw_amount, False, {\"from\": account_crv})
+    # tx.wait(1)
+    # balance = deploy_ef.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of enf after withdraw\", str(balance))
+    # balance = crv.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of crv after withdraw\", str(balance))
+
+    # log(\"withdraw 6\")
+    # tx = deploy_vault.withdraw(withdraw_amount, False, {\"from\": account_crv})
+    # tx.wait(1)
+    # balance = deploy_ef.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of enf after withdraw\", str(balance))
+    # balance = crv.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of crv after withdraw\", str(balance))
+
+
+    # balance = usdc.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of usdc before withdraw\", str(balance))
+
+    # deploy_vault.withdraw(withdraw_amount, True, {\"from\": account_crv})
+
+
+    # balance = usdc.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of usdc after  withdraw\", str(balance))
+
+
+    # balance = usdc.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of usdc before depositstable\", str(balance))
+    # print(balance)
+
+    # usdc.approve(deploy_vault.address,1000000000000000000000000000000000, {\"from\": account_crv})
+
+    # tx = deploy_vault.depositStable(balance/2, {\"from\": account_crv})
+    # tx.wait(1)
+    # chain.sleep(1)
+
+    # balance = usdc.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of usdc after depositStable\", str(balance))
+
+    # balance = deploy_ef.balanceOf(account_crv, {\"from\": account})
+    # log(\"balance of enf\", str(balance))
+
+
+
+    # log(\"start earn rewards\")
+" 0 1 (fontified t) 1 5 (face font-lock-keyword-face fontified t) 5 30 (fontified t) 30 36 (face font-lock-keyword-face fontified t) 36 62 (fontified t) 62 63 (fontified t) 63 79 (fontified t) 79 80 (fontified t) 80 84 (face font-lock-keyword-face fontified t) 84 94 (fontified t) 94 100 (face font-lock-keyword-face fontified t) 100 103 (fontified t) 103 107 (face font-lock-keyword-face fontified t) 107 116 (fontified t) 116 122 (face font-lock-keyword-face fontified t) 122 123 (fontified t) 123 124 (face (rainbow-delimiters-depth-1-face) fontified t) 124 299 (fontified t) 299 300 (fontified t) 300 301 (face (rainbow-delimiters-depth-1-face) fontified t) 301 302 (fontified t) 302 305 (face font-lock-keyword-face fontified t) 305 306 (fontified t) 306 309 (face font-lock-function-name-face fontified t) 309 310 (face (rainbow-delimiters-depth-1-face) fontified t) 310 321 (fontified t) 321 323 (face font-lock-string-face fontified t) 323 324 (face (rainbow-delimiters-depth-1-face) fontified t) 324 330 (fontified t) 330 335 (face font-lock-keyword-face fontified t) 335 336 (face (rainbow-delimiters-depth-1-face) fontified t) 336 346 (face font-lock-string-face fontified t) 346 356 (fontified t) 356 365 (face font-lock-string-face fontified t) 365 372 (fontified t) 372 373 (face (rainbow-delimiters-depth-1-face) fontified t) 373 375 (fontified t) 375 378 (face font-lock-keyword-face fontified t) 378 379 (fontified t) 379 404 (face font-lock-function-name-face fontified t) 404 405 (face (rainbow-delimiters-depth-1-face) fontified t) 405 479 (fontified t) 479 481 (fontified t) 481 488 (fontified t) 488 489 (face (rainbow-delimiters-depth-1-face) fontified t) 489 491 (fontified t) 491 495 (fontified t) 495 497 (face font-lock-comment-delimiter-face fontified t) 497 505 (face font-lock-comment-face fontified t) 505 510 (fontified t) 510 512 (face font-lock-comment-delimiter-face fontified t) 512 565 (face font-lock-comment-face fontified t) 565 569 (fontified t) 569 571 (face font-lock-comment-delimiter-face fontified t) 571 577 (face font-lock-comment-face fontified t) 577 580 (fontified t) 580 581 (fontified t) 581 583 (fontified t face font-lock-comment-delimiter-face) 583 655 (fontified t face font-lock-comment-face) 655 659 (fontified t) 659 661 (face font-lock-comment-delimiter-face fontified t) 661 670 (face font-lock-comment-face fontified t) 670 674 (fontified t) 674 676 (face font-lock-comment-delimiter-face fontified t) 676 735 (face font-lock-comment-face fontified t) 735 741 (fontified t) 741 748 (face font-lock-variable-name-face fontified t) 748 759 (fontified t) 759 760 (face (rainbow-delimiters-depth-1-face) fontified t) 760 761 (fontified t) 761 762 (face (rainbow-delimiters-depth-1-face) fontified t) 762 763 (fontified t) 763 764 (fontified t) 764 768 (fontified t) 768 788 (fontified t) 788 789 (face (rainbow-delimiters-depth-1-face) fontified t) 789 792 (fontified t) 792 793 (face (rainbow-delimiters-depth-2-face) fontified t) 793 803 (face font-lock-string-face fontified t) 803 804 (face (rainbow-delimiters-depth-2-face) fontified t) 804 806 (fontified t) 806 807 (face (rainbow-delimiters-depth-2-face) fontified t) 807 813 (face font-lock-string-face fontified t) 813 824 (fontified t) 824 835 (face font-lock-string-face fontified t) 835 841 (fontified t) 841 842 (fontified t) 842 885 (fontified t) 885 896 (face font-lock-string-face fontified t) 896 906 (fontified t) 906 907 (fontified t) 907 950 (fontified t) 950 964 (face font-lock-string-face fontified t) 964 966 (fontified t) 966 970 (face font-lock-constant-face fontified t) 970 971 (fontified t) 971 972 (fontified t) 972 991 (fontified t) 991 1015 (fontified t) 1015 1022 (face font-lock-string-face fontified t) 1022 1027 (fontified t) 1027 1028 (face (rainbow-delimiters-depth-3-face) fontified t) 1028 1038 (face font-lock-string-face fontified t) 1038 1039 (face (rainbow-delimiters-depth-3-face) fontified t) 1039 1040 (face (rainbow-delimiters-depth-2-face) fontified t) 1040 1041 (face (rainbow-delimiters-depth-1-face) fontified t) 1041 1042 (fontified t) 1042 1043 (fontified t) 1043 1044 (fontified t) 1044 1045 (fontified t) 1045 1048 (fontified t) 1048 1050 (face font-lock-comment-delimiter-face fontified t) 1050 1085 (face font-lock-comment-face fontified t) 1085 1086 (face font-lock-comment-face fontified t) 1086 1087 (fontified t) 1087 1088 (fontified t) 1088 1091 (fontified t) 1091 1093 (face font-lock-comment-delimiter-face fontified t) 1093 1154 (face font-lock-comment-face fontified t) 1154 1155 (face font-lock-comment-face fontified t) 1159 1161 (face font-lock-comment-delimiter-face) 1161 1195 (face font-lock-comment-face) 1195 1196 (face font-lock-comment-face rear-nonsticky t) 1196 1197 (face font-lock-comment-face) 1217 1218 (face (rainbow-delimiters-depth-1-face)) 1232 1233 (face font-lock-string-face) 1233 1242 (face font-lock-string-face) 1242 1243 (face font-lock-string-face rear-nonsticky t) 1243 1244 (face font-lock-string-face) 1252 1253 (face (rainbow-delimiters-depth-1-face) rear-nonsticky t) 1261 1262 (face (rainbow-delimiters-depth-1-face)) 1262 1273 (face font-lock-string-face) 1273 1274 (face font-lock-string-face) 1274 1275 (face font-lock-string-face) 1277 1280 (face font-lock-builtin-face) 1280 1281 (face (rainbow-delimiters-depth-2-face)) 1300 1301 (face (rainbow-delimiters-depth-3-face)) 1308 1309 (face (rainbow-delimiters-depth-3-face)) 1309 1310 (face (rainbow-delimiters-depth-2-face)) 1310 1311 (face (rainbow-delimiters-depth-1-face)) 1319 1326 (face font-lock-variable-name-face) 1351 1352 (face (rainbow-delimiters-depth-1-face)) 1352 1353 (face (rainbow-delimiters-depth-1-face)) 1361 1362 (face (rainbow-delimiters-depth-1-face)) 1362 1371 (face font-lock-string-face) 1373 1376 (face font-lock-builtin-face) 1376 1377 (face (rainbow-delimiters-depth-2-face)) 1384 1385 (face (rainbow-delimiters-depth-2-face)) 1385 1386 (face (rainbow-delimiters-depth-1-face)) 1391 1401 (face font-lock-variable-name-face) 1431 1432 (face (rainbow-delimiters-depth-1-face)) 1432 1433 (face (rainbow-delimiters-depth-1-face)) 1441 1442 (face (rainbow-delimiters-depth-1-face)) 1442 1449 (face font-lock-string-face) 1449 1454 (face font-lock-string-face) 1456 1459 (face font-lock-builtin-face) 1459 1460 (face (rainbow-delimiters-depth-2-face)) 1470 1471 (face (rainbow-delimiters-depth-2-face)) 1471 1472 (face (rainbow-delimiters-depth-1-face)) 1477 1481 (face font-lock-variable-name-face) 1504 1505 (face (rainbow-delimiters-depth-1-face)) 1505 1506 (face (rainbow-delimiters-depth-1-face)) 1514 1515 (face (rainbow-delimiters-depth-1-face)) 1515 1522 (face font-lock-string-face) 1524 1525 (face font-lock-builtin-face) 1525 1527 (face font-lock-builtin-face) 1527 1528 (face (rainbow-delimiters-depth-2-face)) 1532 1533 (face (rainbow-delimiters-depth-2-face)) 1533 1534 (face (rainbow-delimiters-depth-1-face)) 1542 1544 (face font-lock-comment-delimiter-face) 1544 1553 (face font-lock-comment-face) 1557 1559 (face font-lock-comment-delimiter-face) 1559 1602 (face font-lock-comment-face) 1602 1619 (face font-lock-comment-face) 1624 1626 (face font-lock-comment-delimiter-face) 1626 1682 (face font-lock-comment-face) 1686 1688 (face font-lock-comment-delimiter-face) 1688 1724 (face font-lock-comment-face) 1729 1731 (face font-lock-comment-delimiter-face) 1731 1753 (face font-lock-comment-face) 1753 1754 (face font-lock-comment-face) 1754 1793 (face font-lock-comment-face) 1797 1799 (face font-lock-comment-delimiter-face) 1799 1812 (face font-lock-comment-face) 1812 1814 (face font-lock-comment-face) 1814 1835 (face font-lock-comment-face) 1841 1843 (face font-lock-comment-delimiter-face) 1843 1852 (face font-lock-comment-face) 1856 1858 (face font-lock-comment-delimiter-face) 1858 1918 (face font-lock-comment-face) 1923 1925 (face font-lock-comment-delimiter-face) 1925 1973 (face font-lock-comment-face) 1973 1981 (face font-lock-comment-face) 1985 1987 (face font-lock-comment-delimiter-face) 1987 2023 (face font-lock-comment-face) 2028 2030 (face font-lock-comment-delimiter-face) 2030 2035 (face font-lock-comment-face) 2035 2092 (face font-lock-comment-face) 2096 2098 (face font-lock-comment-delimiter-face) 2098 2119 (face font-lock-comment-face) 2119 2134 (face font-lock-comment-face) 2139 2141 (face font-lock-comment-delimiter-face) 2141 2150 (face font-lock-comment-face) 2154 2156 (face font-lock-comment-delimiter-face) 2156 2216 (face font-lock-comment-face) 2221 2223 (face font-lock-comment-delimiter-face) 2223 2279 (face font-lock-comment-face) 2283 2285 (face font-lock-comment-delimiter-face) 2285 2293 (face font-lock-comment-face) 2293 2321 (face font-lock-comment-face)) . 37) (undo-tree-id38 . -1274) (undo-tree-id39 . -1274) (undo-tree-id40 . -187) (undo-tree-id41 . -1042) (undo-tree-id42 . -1042) (undo-tree-id43 . -266) (undo-tree-id44 . -1042) (undo-tree-id45 . -1042) (undo-tree-id46 . -491) (undo-tree-id47 . -1251) (undo-tree-id48 . -1043) (undo-tree-id49 . -1201) (undo-tree-id50 . -1196) (undo-tree-id51 . -1196) (undo-tree-id52 . -1086) (undo-tree-id53 . -1086) (undo-tree-id54 . -1233) (undo-tree-id55 . -1233) (undo-tree-id56 . -491) (undo-tree-id57 . -1218) (undo-tree-id58 . -1233) (undo-tree-id59 . -79) (undo-tree-id60 . -79) (undo-tree-id61 . -79) (undo-tree-id62 . -79) (undo-tree-id63 . -79) (undo-tree-id64 . -79) (undo-tree-id65 . -227) (undo-tree-id66 . -227) (undo-tree-id67 . -79) (undo-tree-id68 . -227) (undo-tree-id69 . -227) (undo-tree-id70 . -227) (undo-tree-id71 . -227) (undo-tree-id72 . -227) (t 25194 13435 556938 678000)) nil (25194 13584 691437 0) 0 nil])
+([nil nil ((#("import pytest" 0 6 (face font-lock-keyword-face fontified t) 6 13 (fontified t)) . 1) (undo-tree-id6 . -13) (undo-tree-id7 . -13) (undo-tree-id8 . -13) (undo-tree-id9 . -13) (undo-tree-id10 . -13) (undo-tree-id11 . -13) (undo-tree-id12 . -13) (undo-tree-id13 . -13) (undo-tree-id14 . -13) (undo-tree-id15 . -13) (undo-tree-id16 . -13) (undo-tree-id17 . -13) (undo-tree-id18 . -13) (undo-tree-id19 . -13) (undo-tree-id20 . -13) (undo-tree-id21 . -13) (undo-tree-id22 . -13) (undo-tree-id23 . -13) (undo-tree-id24 . -13) (undo-tree-id25 . -13) (undo-tree-id26 . -13) (undo-tree-id27 . -13) (undo-tree-id28 . -13) (undo-tree-id29 . -13) (undo-tree-id30 . -13) (undo-tree-id31 . -13) (undo-tree-id32 . -13) (undo-tree-id33 . -13) (undo-tree-id34 . -13) (undo-tree-id35 . -13) (undo-tree-id36 . -13) (undo-tree-id37 . -13) (t 25194 13541 969864 789000)) nil (25194 13584 691422 0) 0 nil])
+([nil nil ((#("
+" 0 1 (ws-butler-chg delete fontified t)) . 1) (undo-tree-id0 . -1) (undo-tree-id1 . -1) (undo-tree-id2 . -1) (undo-tree-id3 . -1) (undo-tree-id4 . -1) (undo-tree-id5 . -1)) nil (25194 13584 691406 0) 0 nil])
+([nil nil ((#("from brownie import *" 0 4 (fontified t face font-lock-keyword-face) 4 13 (fontified t) 13 19 (fontified t face font-lock-keyword-face) 19 21 (fontified t)) . 1) (undo-tree-id19 . -21) (undo-tree-id20 . -21) (undo-tree-id21 . -21) (t 25194 13584 700423 250000)) nil (25194 13700 249583 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t ws-butler-chg delete)) . 1) (undo-tree-id0 . -1) (undo-tree-id1 . -1) (undo-tree-id2 . -1) (undo-tree-id3 . -1) (undo-tree-id4 . -1) (undo-tree-id5 . -1) (undo-tree-id6 . -1) (undo-tree-id7 . -1) (undo-tree-id8 . -1) (undo-tree-id9 . -1) (undo-tree-id10 . -1) (undo-tree-id11 . -1) (undo-tree-id12 . -1) (undo-tree-id13 . -1) (undo-tree-id14 . -1) (undo-tree-id15 . -1) (undo-tree-id16 . -1) (undo-tree-id17 . -1) (undo-tree-id18 . -1)) nil (25194 13700 249579 0) 0 nil])
+([nil nil ((#("    AddressArray," 0 17 (fontified t)) . 23) (undo-tree-id22 . -17) (t 25194 13700 258101 156000)) nil (25194 13706 431316 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t)) . 23) (undo-tree-id23 . -1) (undo-tree-id24 . -1) (undo-tree-id25 . -1) (undo-tree-id26 . 1) (undo-tree-id27 . 1) (undo-tree-id28 . -1) (t 25194 13706 434791 418000)) nil (25194 13708 620413 0) 0 nil])
+([nil nil ((#("    ERC20Token," 0 15 (fontified t)) . 55) (t 25194 13756 911863 607000)) nil (25194 13802 462254 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t ws-butler-chg delete)) . 55) (undo-tree-id29 . -1) (undo-tree-id30 . -1) (undo-tree-id31 . -1)) nil (25194 13802 462253 0) 0 nil])
+([nil nil ((#("    ERC20TokenFactory," 0 1 (fontified t ws-butler-chg delete) 1 22 (fontified t)) . 55)) nil (25194 13802 462243 0) 0 nil])
+([nil nil ((#("TrustList," 0 10 (fontified t)) . 60) (t 25194 13802 465602 841000)) nil (25194 13805 893307 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t ws-butler-chg delete)) . 60) (undo-tree-id58 . -1) (undo-tree-id59 . -1) (undo-tree-id60 . -1)) nil (25194 13805 893306 0) 0 nil])
+([nil nil ((#("    TrustListFactory," 0 1 (fontified t ws-butler-chg delete) 1 21 (fontified t)) . 60)) nil (25194 13805 893304 0) 0 nil])
+([nil nil ((#("    " 0 4 (fontified t)) . 56) (undo-tree-id32 . -4) (undo-tree-id33 . -4) (undo-tree-id34 . -4) (undo-tree-id35 . -4) (undo-tree-id36 . -4) (undo-tree-id37 . -4) (undo-tree-id38 . -4) (undo-tree-id39 . -4) (undo-tree-id40 . -4) (undo-tree-id41 . -4) (undo-tree-id42 . -4) (undo-tree-id43 . -4) (undo-tree-id44 . -4) (undo-tree-id45 . -4) (undo-tree-id46 . -4) (undo-tree-id47 . -4) (undo-tree-id48 . -4) (undo-tree-id49 . -4) (undo-tree-id50 . -4) (undo-tree-id51 . -4) (undo-tree-id52 . -4) (undo-tree-id53 . -4) (undo-tree-id54 . -4) (undo-tree-id55 . -4) (undo-tree-id56 . -4) (undo-tree-id57 . -4) 60) nil (25194 13805 893301 0) 0 nil])
+([nil nil ((#("config," 0 7 (fontified t)) . 84) (undo-tree-id97 . -7) (undo-tree-id98 . -7) (undo-tree-id99 . -7) (undo-tree-id100 . -7) (undo-tree-id101 . -7) (undo-tree-id102 . -7) (undo-tree-id103 . -7) (undo-tree-id104 . -7) (undo-tree-id105 . -7) (undo-tree-id106 . -7) (t 25194 13805 896708 664000)) nil (25194 13810 94697 0) 0 nil])
+([nil nil ((#("    " 0 4 (fontified t)) . 80) (undo-tree-id61 . -4) (undo-tree-id62 . -4) (undo-tree-id63 . -4) (undo-tree-id64 . -4) (undo-tree-id65 . -4) (undo-tree-id66 . -4) (undo-tree-id67 . -4) (undo-tree-id68 . -4) (undo-tree-id69 . -4) (undo-tree-id70 . -4) (undo-tree-id71 . -4) (undo-tree-id72 . -4) (undo-tree-id73 . -4) (undo-tree-id74 . -4) (undo-tree-id75 . -4) (undo-tree-id76 . -4) (undo-tree-id77 . -4) (undo-tree-id78 . -4) (undo-tree-id79 . -4) (undo-tree-id80 . -4) (undo-tree-id81 . -4) (undo-tree-id82 . -4) (undo-tree-id83 . -4) (undo-tree-id84 . -4) (undo-tree-id85 . -4) (undo-tree-id86 . -4) (undo-tree-id87 . -4) (undo-tree-id88 . -4) (undo-tree-id89 . -4) (undo-tree-id90 . -4) (undo-tree-id91 . -4) (undo-tree-id92 . -4) (undo-tree-id93 . -4) (undo-tree-id94 . -4) (undo-tree-id95 . -4) (undo-tree-id96 . -4) 84) nil (25194 13810 94688 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t)) . 55) (undo-tree-id125 . -1) (undo-tree-id126 . -1) (undo-tree-id127 . -1) (undo-tree-id128 . -1) (undo-tree-id129 . -1) (t 25194 13810 97958 503000)) nil (25194 13814 760095 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t ws-butler-chg delete)) . 55) (undo-tree-id116 . -1) (undo-tree-id117 . -1) (undo-tree-id118 . -1) (undo-tree-id119 . -1) (undo-tree-id120 . -1) (undo-tree-id121 . -1) (undo-tree-id122 . 1) (undo-tree-id123 . 1) (undo-tree-id124 . -1)) nil (25194 13814 760092 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t)) . 78) (undo-tree-id107 . -1) (undo-tree-id108 . -1) (undo-tree-id109 . -1) (undo-tree-id110 . -1) (undo-tree-id111 . -1) (undo-tree-id112 . -1) (undo-tree-id113 . 1) (undo-tree-id114 . 1) (undo-tree-id115 . -1)) nil (25194 13814 760085 0) 0 nil])
+([nil nil ((#("    # Arrange" 0 4 (fontified t) 4 6 (fontified t face font-lock-comment-delimiter-face) 6 13 (fontified t face font-lock-comment-face)) . 421) (t 25194 13814 763154 440000)) nil (25194 13833 177707 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t ws-butler-chg delete)) . 421) (undo-tree-id153 . -1) (undo-tree-id154 . -1) (undo-tree-id155 . -1)) nil (25194 13833 177706 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t ws-butler-chg delete)) . 421) (undo-tree-id150 . -1) (undo-tree-id151 . -1) (undo-tree-id152 . -1)) nil (25194 13833 177704 0) 0 nil])
+([nil nil ((#("    # address = get_contract(\"eth_usd_price_feed\").address" 0 1 (fontified t ws-butler-chg delete) 1 4 (fontified t) 4 6 (fontified t face font-lock-comment-delimiter-face) 6 13 (fontified t face font-lock-comment-face) 13 58 (fontified t face font-lock-comment-face)) . 421)) nil (25194 13833 177702 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t ws-butler-chg delete)) . 421) (undo-tree-id146 . -1) (undo-tree-id147 . -1) (undo-tree-id148 . -1) (undo-tree-id149 . -1)) nil (25194 13833 177701 0) 0 nil])
+([nil nil ((#("    # # Act" 0 1 (fontified t ws-butler-chg delete) 1 4 (fontified t) 4 6 (fontified t face font-lock-comment-delimiter-face) 6 11 (fontified t face font-lock-comment-face)) . 421) (undo-tree-id145 . -11)) nil (25194 13833 177699 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t ws-butler-chg delete)) . 421) (undo-tree-id141 . -1) (undo-tree-id142 . -1) (undo-tree-id143 . -1) (undo-tree-id144 . -1)) nil (25194 13833 177698 0) 0 nil])
+([nil nil ((#("    # price_feed = PriceFeedConsumer.deploy(address, {\"from\": get_account()})" 0 1 (fontified t ws-butler-chg delete) 1 4 (fontified t) 4 6 (fontified t face font-lock-comment-delimiter-face) 6 9 (fontified t face font-lock-comment-face) 9 36 (fontified t face font-lock-comment-face) 36 47 (fontified t face font-lock-comment-face) 47 57 (fontified t face font-lock-comment-face) 57 71 (fontified t face font-lock-comment-face) 71 77 (fontified t face font-lock-comment-face)) . 421) (undo-tree-id140 . -77)) nil (25194 13833 177696 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t ws-butler-chg delete)) . 421) (undo-tree-id136 . -1) (undo-tree-id137 . -1) (undo-tree-id138 . -1) (undo-tree-id139 . -1)) nil (25194 13833 177694 0) 0 nil])
+([nil nil ((#("    # # Assert" 0 1 (fontified t ws-butler-chg delete) 1 4 (fontified t) 4 6 (fontified t face font-lock-comment-delimiter-face) 6 14 (fontified t face font-lock-comment-face)) . 421) (undo-tree-id135 . -14)) nil (25194 13833 177692 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t ws-butler-chg delete)) . 421) (undo-tree-id131 . -1) (undo-tree-id132 . -1) (undo-tree-id133 . -1) (undo-tree-id134 . -1)) nil (25194 13833 177691 0) 0 nil])
+([nil nil ((#("    # value = price_feed.getLatestPrice({\"from\": get_account()})" 0 1 (fontified t ws-butler-chg delete) 1 4 (fontified t) 4 6 (fontified t face font-lock-comment-delimiter-face) 6 64 (fontified t face font-lock-comment-face)) . 421) (undo-tree-id130 . -64)) nil (25194 13833 177686 0) 0 nil])
+([nil nil ((#("    Contract," 0 1 (fontified t) 1 13 (fontified t)) . 23) (undo-tree-id156 . -13) (t 25194 13833 181258 220000)) nil (25194 13844 778443 0) 0 nil])
+([nil nil ((#("EFLeverVault," 0 13 (fontified t)) . 28) (undo-tree-id161 . -9) (undo-tree-id162 . -9) (undo-tree-id163 . -9) (undo-tree-id164 . -9) (undo-tree-id165 . -9) (undo-tree-id166 . -9) (undo-tree-id167 . -9) (undo-tree-id168 . -9) (undo-tree-id169 . -9) (undo-tree-id170 . -9) (undo-tree-id171 . -9) (undo-tree-id172 . -9) (undo-tree-id173 . -9) (undo-tree-id174 . -9) (undo-tree-id175 . -9) (undo-tree-id176 . -9) (undo-tree-id177 . -13) (t 25194 13844 782011 761000)) nil (25194 13849 690202 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t ws-butler-chg delete)) . 28) (undo-tree-id157 . -1) (undo-tree-id158 . -1) (undo-tree-id159 . -1) (undo-tree-id160 . -1)) nil (25194 13849 690191 0) 0 nil])
+([nil nil ((#("network," 0 8 (fontified t)) . 55) (undo-tree-id248 . -8) (undo-tree-id249 . -8) (t 25194 13849 693887 841000)) nil (25194 13855 548152 0) 0 nil])
+([nil current ((#("    " 0 1 (fontified t) 1 4 (fontified t)) . 51) (undo-tree-id178 . -4) (undo-tree-id179 . -4) (undo-tree-id180 . -4) (undo-tree-id181 . -4) (undo-tree-id182 . -4) (undo-tree-id183 . -4) (undo-tree-id184 . -4) (undo-tree-id185 . -4) (undo-tree-id186 . -4) (undo-tree-id187 . -4) (undo-tree-id188 . -4) (undo-tree-id189 . -4) (undo-tree-id190 . -4) (undo-tree-id191 . -4) (undo-tree-id192 . -4) (undo-tree-id193 . -4) (undo-tree-id194 . -4) (undo-tree-id195 . -4) (undo-tree-id196 . -4) (undo-tree-id197 . -4) (undo-tree-id198 . -4) (undo-tree-id199 . -4) (undo-tree-id200 . -4) (undo-tree-id201 . -4) (undo-tree-id202 . -4) (undo-tree-id203 . -4) (undo-tree-id204 . -4) (undo-tree-id205 . -4) (undo-tree-id206 . -4) (undo-tree-id207 . -4) (undo-tree-id208 . -4) (undo-tree-id209 . -4) (undo-tree-id210 . -4) (undo-tree-id211 . -4) (undo-tree-id212 . -4) (undo-tree-id213 . -4) (undo-tree-id214 . -4) (undo-tree-id215 . -4) (undo-tree-id216 . -4) (undo-tree-id217 . -4) (undo-tree-id218 . -4) (undo-tree-id219 . -4) (undo-tree-id220 . -4) (undo-tree-id221 . -4) (undo-tree-id222 . -4) (undo-tree-id223 . -4) (undo-tree-id224 . -4) (undo-tree-id225 . -4) (undo-tree-id226 . -4) (undo-tree-id227 . -4) (undo-tree-id228 . -4) (undo-tree-id229 . -4) (undo-tree-id230 . -4) (undo-tree-id231 . -4) (undo-tree-id232 . -4) (undo-tree-id233 . -4) (undo-tree-id234 . -4) (undo-tree-id235 . -4) (undo-tree-id236 . -4) (undo-tree-id237 . -4) (undo-tree-id238 . -4) (undo-tree-id239 . -4) (undo-tree-id240 . -4) (undo-tree-id241 . -4) (undo-tree-id242 . -4) (undo-tree-id243 . -4) (undo-tree-id244 . -4) (undo-tree-id245 . -4) (undo-tree-id246 . -4) (undo-tree-id247 . -4) 55) nil (25194 13855 548147 0) 0 nil])
 nil

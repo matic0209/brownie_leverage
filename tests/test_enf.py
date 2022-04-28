@@ -1,50 +1,41 @@
-import pytest
-from brownie import *
-
-from scripts.helpful_scripts import get_account, get_contract
+from brownie import Wei, accounts
 from conftest import *
-from brownie import (
-    Wei,
-    accounts,
-    Contract,
-    config,
-    network,
-    ERC20TokenFactory,
-    AddressArray,
-    ERC20Token,
-    TrustListFactory,
-    TrustList,
-    EFLeverVault,
+
+from scripts.helpful_scripts import get_account, get_contract, listen_for_event
 
 
+def log(text, desc=""):
+    print("\033[32m" + text + "\033[0m" + desc)
 
-)
-def log(text, desc=''):
-    print('\033[32m' + text + '\033[0m' + desc)
 
-def test_can_get_latest_price(deploy_safeerc20,deploy_addressArray,deploy_tl,gett_token_tl,deploy_el,deploy_vault):
-    # Arrange
-
-    # address = get_contract("eth_usd_price_feed").address
-    # # Act
-    # price_feed = PriceFeedConsumer.deploy(address, {"from": get_account()})
-    # # Assert
-    # value = price_feed.getLatestPrice({"from": get_account()})
-
+def test_can_get_latest_price(
+    deploy_safeerc20,
+    deploy_addressArray,
+    deploy_tl,
+    gett_token_tl,
+    deploy_el,
+    deploy_vault,
+):
 
     account = accounts[0]
-    log("add _asset ")
 
-
-    log("1")
-    deploy_vault.deposit(Wei("10 ether"), {"from": account, "gas_price": 100, "gas_limit": 3000000, "allow_revert": True,"value": Wei("10 ether")})
-    log("ef balance", str(deploy_el.balanceOf(account)))
-
+    deploy_vault.deposit(
+        Wei("10 ether"),
+        {
+            "from": account,
+            "gas_price": 100,
+            "gas_limit": 3000000,
+            "allow_revert": True,
+            "value": Wei("10 ether"),
+        },
+    )
 
     # log("balance of crv", str(balance))
 
     # balance = deploy_ef.balanceOf(account_crv, {"from": account})
     # log("balance of enf", str(balance))
+    listen_for_event(deploy_vault, "CFFDeposit", 200, 2)
+    log("ef balance ", str(deploy_el.balanceOf(account)))
 
     volumne = deploy_vault.getVolume()
     log("volumne", str(volumne))
@@ -52,8 +43,6 @@ def test_can_get_latest_price(deploy_safeerc20,deploy_addressArray,deploy_tl,get
     log("collateral", str(collateral))
     debt = deploy_vault.getDebt()
     log("Debt ", str(debt))
-
-
 
     # log("1")
     # deploy_vault.deposit(deposit_amount, {"from": account_crv})
@@ -63,7 +52,6 @@ def test_can_get_latest_price(deploy_safeerc20,deploy_addressArray,deploy_tl,get
 
     # balance = deploy_ef.balanceOf(account_crv, {"from": account})
     # log("balance of enf", str(balance))
-
 
     # log("2")
     # deploy_vault.deposit(deposit_amount, {"from": account_crv})
@@ -119,7 +107,6 @@ def test_can_get_latest_price(deploy_safeerc20,deploy_addressArray,deploy_tl,get
     # balance = deploy_ef.balanceOf(account_crv, {"from": account})
     # log("balance of enf", str(balance))
 
-
     # withdraw_amount = balance/10
     # log("withdraw 1")
     # tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
@@ -128,7 +115,6 @@ def test_can_get_latest_price(deploy_safeerc20,deploy_addressArray,deploy_tl,get
     # log("balance of enf after withdraw", str(balance))
     # balance = crv.balanceOf(account_crv, {"from": account})
     # log("balance of crv after withdraw", str(balance))
-
 
     # log("withdraw 2")
     # tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
@@ -170,16 +156,13 @@ def test_can_get_latest_price(deploy_safeerc20,deploy_addressArray,deploy_tl,get
     # balance = crv.balanceOf(account_crv, {"from": account})
     # log("balance of crv after withdraw", str(balance))
 
-
     # balance = usdc.balanceOf(account_crv, {"from": account})
     # log("balance of usdc before withdraw", str(balance))
 
     # deploy_vault.withdraw(withdraw_amount, True, {"from": account_crv})
 
-
     # balance = usdc.balanceOf(account_crv, {"from": account})
     # log("balance of usdc after  withdraw", str(balance))
-
 
     # balance = usdc.balanceOf(account_crv, {"from": account})
     # log("balance of usdc before depositstable", str(balance))
@@ -197,10 +180,7 @@ def test_can_get_latest_price(deploy_safeerc20,deploy_addressArray,deploy_tl,get
     # balance = deploy_ef.balanceOf(account_crv, {"from": account})
     # log("balance of enf", str(balance))
 
-
-
     # log("start earn rewards")
-
 
     # tx = deploy_vault.earnReward({"from": account})
     # tx.wait(1)
