@@ -118,7 +118,7 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
 
     amounts[0] = loan_amount;
 
-    //IBalancer(balancer).flashLoan(address(this), tokens, amounts, userData);
+    IBalancer(balancer).flashLoan(address(this), tokens, amounts, userData);
 
     uint256 ef_amount;
     if ((volume_before == 0)){

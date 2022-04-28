@@ -83,5 +83,6 @@ nil
 ([nil nil ((997 . 1000) (996 . 998) (#("(" 0 1 (fontified nil ws-butler-chg chg face font-lock-builtin-face)) . -996) (992 . 997) (t 25193 61859 486668 664000)) nil (25193 61887 254166 0) 0 nil])
 ([nil nil ((1000 . 1004)) nil (25193 61887 254165 0) 0 nil])
 ([nil nil ((1004 . 1006)) nil (25193 61887 254164 0) 0 nil])
-([nil current ((1006 . 1027) (#("))" 0 1 (fontified t ws-butler-chg chg face (rainbow-delimiters-depth-2-face)) 1 2 (fontified t ws-butler-chg delete face (rainbow-delimiters-depth-1-face))) . 1006) (undo-tree-id1765 . 2)) nil (25193 61887 254161 0) 0 nil])
+([nil nil ((1006 . 1027) (#("))" 0 1 (fontified t ws-butler-chg chg face (rainbow-delimiters-depth-2-face)) 1 2 (fontified t ws-butler-chg delete face (rainbow-delimiters-depth-1-face))) . 1006) (undo-tree-id1765 . 2)) nil (25193 61887 254161 0) 0 nil])
+([nil current ((#("d" 0 1 (fontified t ws-butler-chg chg face font-lock-comment-face)) . -736) (undo-tree-id1766 . -1) (736 . 737) (t 25193 61887 257680 486000)) nil (25193 63464 390484 0) 0 nil])
 nil
