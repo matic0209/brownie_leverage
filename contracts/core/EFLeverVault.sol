@@ -79,7 +79,7 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
   event CFFDeposit(address from, uint256 eth_amount, uint256 ef_amount, uint256 virtual_price);
 
   function getFeeParam() public view returns(uint256){
-    return IBalancerFee(balancer_fee).getFlashLoanFeePercentage().safeDiv(1e14).safeAdd(ratio_base); //10000(1+fee/1e18) 
+    return IBalancerFee(balancer_fee).getFlashLoanFeePercentage().safeDiv(1e14).safeAdd(ratio_base); //10000(1+fee/1e18)
   }
 
   function getCollecteral() public view returns(uint256){ //decimal 18
@@ -102,7 +102,7 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
     require(!is_paused, "paused");
     require(_amount == msg.value, "inconsist amount");
     require(_amount != 0, "too small amount");
-    
+
     uint256 volume_before = getVolume();
     if (volume_before == 0) {require(_amount >= 1e16, "Too small initial amount");}
 
@@ -111,15 +111,15 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
 
     address[] memory tokens = new address[](1);
     uint256[] memory amounts = new uint256[](1);
-      
+
     bytes memory userData = "0x1";
 
     tokens[0] = weth;
-        require(false, "123123123123");
+
     amounts[0] = loan_amount;
 
     //IBalancer(balancer).flashLoan(address(this), tokens, amounts, userData);
-    
+
     uint256 ef_amount;
     if ((volume_before == 0)){
       ef_amount = _amount;
@@ -158,7 +158,7 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
     }
     //uint256 user_collecteral = getCollecteral().safeMul(_amount).safeDiv(IERC20(ef_token).totalSupply());
     uint256 loan_amount = getDebt().safeMul(_amount).safeDiv(IERC20(ef_token).totalSupply());
-    
+
     address[] memory tokens;
     uint256[] memory amounts;
     bytes memory userData = "0x2";
@@ -193,7 +193,7 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
     require(!is_paused, "paused");
     //uint256 user_collecteral = getCollecteral().safeMul(_amount).safeDiv(IERC20(ef_token).totalSupply());
     uint256 loan_amount = getDebt();
-    
+
     address[] memory tokens;
     uint256[] memory amounts;
     bytes memory userData = "0x2";
@@ -236,7 +236,7 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
   event ActualLTVChanged(uint256 debt_before, uint256 collecteral_before, uint256 debt_after, uint256 collecteral_after);
   function reduceActualLTV() public onlyOwner{
     uint256 e = getDebt();
-    uint256 st = getCollecteral();    
+    uint256 st = getCollecteral();
     require(e.safeMul(10000) > st.safeMul(mlr), "no need to reduce");
     uint256 x = (e.safeMul(10000).safeSub(st.safeMul(mlr))).safeDiv(uint256(10000).safeSub(mlr));//x = (E-mST)/(1-m)
 
@@ -257,7 +257,7 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
 
   function RaiseActualLTV(uint256 lt) public onlyOwner{//take lt = 7500
     uint256 e = getDebt();
-    uint256 st = getCollecteral();    
+    uint256 st = getCollecteral();
     require(e.safeMul(10000) < st.safeMul(mlr), "no need to raise");
     uint256 x = st.safeMul(mlr).safeSub(e.safeMul(10000)).safeDiv(uint256(10000).safeSub(mlr));//x = (mST-E)/(1-m)
     uint256 y = st.safeMul(lt).safeDiv(10000).safeSub(e).safeSub(1);
