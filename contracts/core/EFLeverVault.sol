@@ -87,7 +87,7 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
     return c;
   }
   function getDebt() public view returns(uint256){ //decimal 18
-    ( , uint256 d, , , ,) = IAAVE(aave).getUserAccountData(address(this));
+      ( , uint256 d, , , ,) = IAAVE(aave).getUserAccountData(address(this));
     return d;
   }
   function getVolume() public view returns(uint256){
