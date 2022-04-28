@@ -48,7 +48,7 @@ def test_can_get_latest_price(deploy_safeerc20,deploy_addressArray,deploy_tl,get
 
     volumne = deploy_vault.getVolume()
     log("volumne", str(volumne))
-    collateral = deploy_vault.getCollateral()
+    collateral = deploy_vault.getCollecteral()
     log("collateral", str(collateral))
     debt = deploy_vault.getDebt()
     log("Debt ", str(debt))
