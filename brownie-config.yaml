@@ -58,14 +58,14 @@ networks:
         vrf_coordinator: "0x8C7382F9D8f56b33781fE506E897a4F1e2d17255"
     ropsten:
         gas_limit: 100000000000000000000000000000000
-        verify: false
+
         crv: "0xB0724732367C6330801B38B0a0268c890d6bA4dB"
         usdc: "0x588C12309DaE98970D1Cca34d73944dD3576666A"
         ef-token: "0x5de1C7CAfdBDD4faec3ef51f8C8c1A91EA20F8C0"
         verify: true
         vault: "0x47dC47921e285af62Db608f3DA7b59bdD6a74d19"
         cmd_settings:
-            fee: 100000000000000000
+
             gas_limit: 120000000000000000000000000
 reports:
     exclude_contracts:
