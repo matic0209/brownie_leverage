@@ -19,7 +19,7 @@ def test_can_get_latest_price(
 
     account = accounts[0]
 
-    deploy_vault.deposit(
+    tx = deploy_vault.deposit(
         Wei("10 ether"),
         {
             "from": account,
@@ -35,6 +35,7 @@ def test_can_get_latest_price(
     # balance = deploy_ef.balanceOf(account_crv, {"from": account})
     # log("balance of enf", str(balance))
     # listen_for_event(deploy_vault, "CFFDeposit", 200, 2)
+    print(tx.events["CFFDeposit"])
     log("ef balance ", str(deploy_el.balanceOf(account)))
 
     volumne = deploy_vault.getVolume()
