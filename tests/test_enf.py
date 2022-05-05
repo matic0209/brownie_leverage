@@ -18,9 +18,10 @@ def test_can_get_latest_price(
 ):
 
     account = accounts[0]
-    balance_before = account.balance()
 
+    balance_before = account.balance()
     log("balance of account eth before", str(balance_before))
+
     tx = deploy_vault.deposit(
         Wei("10 ether"),
         {
@@ -34,12 +35,7 @@ def test_can_get_latest_price(
 
     balance_after = account.balance()
     log("balance of account eth end", str(balance_after))
-    # assert balance_before == Wei("10 ether") + balance_after
 
-    # balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    # log("balance of enf", str(balance))
-    # listen_for_event(deploy_vault, "CFFDeposit", 200, 2)
-    print(tx.info())
     assert len(tx.events["CFFDeposit"]) == 1
     event_new = tx.events["CFFDeposit"][0]
     log("ef balance ", str(deploy_el.balanceOf(account)))
@@ -56,144 +52,23 @@ def test_can_get_latest_price(
     debt = deploy_vault.getDebt()
     log("Debt ", str(debt))
 
-    # log("1")
-    # deploy_vault.deposit(deposit_amount, {"from": account_crv})
+    log("---------withdraw-------------")
 
-    # balance = crv.balanceOf(account_crv, {"from": account})
-    # log("balance of crv", str(balance))
+    balance_before = account.balance()
+    log("balance of account eth before", str(balance_before))
 
-    # balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    # log("balance of enf", str(balance))
+    tx = deploy_vault.withdraw(
+        deploy_el.balanceOf(account) / 2,
+        {
+            "from": account,
+            "gas_price": 100,
+            "gas_limit": 3000000,
+            "allow_revert": True,
+            "value": Wei("10 ether"),
+        },
+    )
 
-    # log("2")
-    # deploy_vault.deposit(deposit_amount, {"from": account_crv})
+    print(tx.info())
 
-    # balance = crv.balanceOf(account_crv, {"from": account})
-    # log("balance of crv", str(balance))
-
-    # balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    # log("balance of enf", str(balance))
-
-    # log("3")
-    # deploy_vault.deposit(deposit_amount, {"from": account_crv})
-
-    # balance = crv.balanceOf(account_crv, {"from": account})
-    # log("balance of crv", str(balance))
-
-    # balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    # log("balance of enf", str(balance))
-
-    # log(" deposit 1")
-    # deploy_vault.deposit(deposit_amount, {"from": account_crv})
-
-    # balance = crv.balanceOf(account_crv, {"from": account})
-    # log("balance of crv", str(balance))
-
-    # balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    # log("balance of enf", str(balance))
-
-    # log("deposit 2")
-    # deploy_vault.deposit(deposit_amount, {"from": account_crv})
-
-    # balance = crv.balanceOf(account_crv, {"from": account})
-    # log("balance of crv", str(balance))
-
-    # balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    # log("balance of enf", str(balance))
-
-    # log("deposit 3")
-    # deploy_vault.deposit(deposit_amount, {"from": account_crv})
-
-    # balance = crv.balanceOf(account_crv, {"from": account})
-    # log("balance of crv", str(balance))
-
-    # balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    # log("balance of enf", str(balance))
-
-    # log("deposit 4")
-    # deploy_vault.deposit(deposit_amount, {"from": account_crv})
-
-    # balance = crv.balanceOf(account_crv, {"from": account})
-    # log("balance of crv", str(balance))
-
-    # balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    # log("balance of enf", str(balance))
-
-    # withdraw_amount = balance/10
-    # log("withdraw 1")
-    # tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
-    # tx.wait(1)
-    # balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    # log("balance of enf after withdraw", str(balance))
-    # balance = crv.balanceOf(account_crv, {"from": account})
-    # log("balance of crv after withdraw", str(balance))
-
-    # log("withdraw 2")
-    # tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
-    # tx.wait(1)
-    # balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    # log("balance of enf after withdraw", str(balance))
-    # balance = crv.balanceOf(account_crv, {"from": account})
-    # log("balance of crv after withdraw", str(balance))
-
-    # log("withdraw 3")
-    # tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
-    # tx.wait(1)
-    # balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    # log("balance of enf after withdraw", str(balance))
-    # balance = crv.balanceOf(account_crv, {"from": account})
-    # log("balance of crv after withdraw", str(balance))
-
-    # log("withdraw 4")
-    # tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
-    # tx.wait(1)
-    # balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    # log("balance of enf after withdraw", str(balance))
-    # balance = crv.balanceOf(account_crv, {"from": account})
-    # log("balance of crv after withdraw", str(balance))
-
-    # log("withdraw 5")
-    # tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
-    # tx.wait(1)
-    # balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    # log("balance of enf after withdraw", str(balance))
-    # balance = crv.balanceOf(account_crv, {"from": account})
-    # log("balance of crv after withdraw", str(balance))
-
-    # log("withdraw 6")
-    # tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
-    # tx.wait(1)
-    # balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    # log("balance of enf after withdraw", str(balance))
-    # balance = crv.balanceOf(account_crv, {"from": account})
-    # log("balance of crv after withdraw", str(balance))
-
-    # balance = usdc.balanceOf(account_crv, {"from": account})
-    # log("balance of usdc before withdraw", str(balance))
-
-    # deploy_vault.withdraw(withdraw_amount, True, {"from": account_crv})
-
-    # balance = usdc.balanceOf(account_crv, {"from": account})
-    # log("balance of usdc after  withdraw", str(balance))
-
-    # balance = usdc.balanceOf(account_crv, {"from": account})
-    # log("balance of usdc before depositstable", str(balance))
-    # print(balance)
-
-    # usdc.approve(deploy_vault.address,1000000000000000000000000000000000, {"from": account_crv})
-
-    # tx = deploy_vault.depositStable(balance/2, {"from": account_crv})
-    # tx.wait(1)
-    # chain.sleep(1)
-
-    # balance = usdc.balanceOf(account_crv, {"from": account})
-    # log("balance of usdc after depositStable", str(balance))
-
-    # balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    # log("balance of enf", str(balance))
-
-    # log("start earn rewards")
-
-    # tx = deploy_vault.earnReward({"from": account})
-    # tx.wait(1)
-    # chain.sleep(1)
+    balance_after = account.balance()
+    log("balance of account eth end", str(balance_after))
