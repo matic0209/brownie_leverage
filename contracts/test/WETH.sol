@@ -21,8 +21,9 @@ contract WETH {
         emit Deposit(msg.sender, msg.value);
     }
     function withdraw(uint wad) public {
-        require(balanceOf[msg.sender] >= wad);
+        require(balanceOf[msg.sender] >= wad, "weth: not enough weth balance");
         balanceOf[msg.sender] -= wad;
+        require(address(this).balance >= wad, "weth: not enough eth balance");
         msg.sender.transfer(wad);
         emit Withdrawal(msg.sender, wad);
     }
@@ -39,10 +40,6 @@ contract WETH {
 
     function transfer(address dst, uint wad) public returns (bool) {
         return transferFrom(msg.sender, dst, wad);
-    }
-
-    function mint(uint amount) public{
-        balanceOf[msg.sender] += amount;
     }
 
     function transferFrom(address src, address dst, uint wad)

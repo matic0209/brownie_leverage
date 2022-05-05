@@ -61,7 +61,7 @@ contract AAVE is Ownable{
     debts[msg.sender] -= deb;
   }
 
-  function changeIndex(uint256 _index) public{
+  function changeDebtIndex(uint256 _index) public{
     index = _index;
   }
   function getUserAccountData(address account)

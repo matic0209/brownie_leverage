@@ -15,6 +15,7 @@ contract Lido is IERC20{
     mapping (address => mapping (address => uint256)) private allowances;
 
     uint256 public totalLidoShares;
+    uint256 public totalETH;
 
     function decimals() public pure returns (uint8) {
         return 18;
@@ -31,7 +32,7 @@ contract Lido is IERC20{
     function balanceOf(address _account) public view returns (uint256) {
         return getPooledEthByShares(_sharesOf(_account));
     }
-
+    event LidoSubmit(uint256 eth_amount, uint256 shares_amount);
     function submit(address _referral) external payable returns (uint256) {
         address sender = msg.sender;
         uint256 deposit = msg.value;
@@ -45,6 +46,8 @@ contract Lido is IERC20{
         }
 
         _mintShares(sender, sharesAmount);
+        totalETH = totalETH.safeAdd(deposit);
+        emit LidoSubmit(deposit, sharesAmount);
         return sharesAmount;
     }
 
@@ -114,7 +117,7 @@ contract Lido is IERC20{
     }
 
     function _getTotalPooledEther() internal view returns (uint256){
-      return address(this).balance;
+      return totalETH;
     }
 
  
@@ -172,5 +175,7 @@ contract Lido is IERC20{
 
         return totalLidoShares;
     }
-    function() external payable{}
+    function() external payable{
+        totalETH = totalETH.safeAdd(msg.value);
+    }
 }

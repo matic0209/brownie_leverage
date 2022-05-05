@@ -33,13 +33,13 @@ contract Balancer is Ownable{
     return IFee(fee_collect).getFlashLoanFeePercentage();
   }
 
+  event BalFlashLoan(address addr, uint256 amount, uint256 fee_amount);
   function flashLoan(
         address recipient,
         IERC20[] memory tokens,
         uint256[] memory amounts,
         bytes memory userData
   ) public{
-    //require(false, "123123123123");
     uint256 pre_bal = tokens[0].balanceOf(address(this));
     uint256[] memory feeAmounts = new uint256[](tokens.length);
     uint256 fee = getFee();
@@ -48,6 +48,7 @@ contract Balancer is Ownable{
     IFlashLoanRecipient(recipient).receiveFlashLoan(tokens, amounts, feeAmounts, userData);
     uint256 post_bal = tokens[0].balanceOf(address(this));
     require(pre_bal + feeAmounts[0] <= post_bal, "INSUFFICIENT_FLASH_LOAN_FEE_AMOUNT");
+    emit BalFlashLoan(recipient, amounts[0], feeAmounts[0]);
   }
 
   function claimETH(address payable _to) public onlyOwner{

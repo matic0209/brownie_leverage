@@ -45,11 +45,11 @@ contract aRebaseToken is IERC20{
     }
 
     function balanceOf(address tokenOwner) public view returns (uint balance) {
-        return balances[tokenOwner];
+        return balances[tokenOwner] * getIndex() / 1e18;
     }
 
     function transfer(address to, uint tokens) public returns(bool){
-        uint amount = tokens * getIndex() / 1e18;
+        uint amount = tokens * 1e18 / getIndex();
         require(balances[msg.sender] >= amount, "rabase token: not enough balance");
         balances[msg.sender] = balances[msg.sender] - amount;
         balances[to] = balances[to] + amount;
@@ -64,7 +64,7 @@ contract aRebaseToken is IERC20{
     }
 
     function transferFrom(address from, address to, uint tokens) public returns(bool){
-        uint amount = tokens * getIndex() / 1e18;
+        uint amount = tokens * 1e18 / getIndex();
         require(balances[from] >= amount, "rabase token: not enough balance");
         balances[from] = balances[from] - amount;
         require(allowed[from][msg.sender] >= tokens, "rabase token: not enough allowance");
@@ -78,17 +78,9 @@ contract aRebaseToken is IERC20{
         return allowed[tokenOwner][spender];
     }
 
-    function issue(address account, uint num) public{
-      if(account == address(0)) return ;
-
-      balances[account] += num;
-      _totalSupply += num;
-      emit Transfer(address(0), account, num);
-    }
-
     function generateTokens(address account, uint num) public returns(bool){
       if(account == address(0)) return false;
-      uint amount = num * getIndex() / 1e18;
+      uint amount = num * 1e18 / getIndex();
       balances[account] += amount;
       _totalSupply += amount;
 
@@ -97,7 +89,7 @@ contract aRebaseToken is IERC20{
     }
     function destroyTokens(address account, uint num) public returns(bool){
       if(account == address(0)) return false;
-      uint amount = num * getIndex() / 1e18;
+      uint amount = num * 1e18 / getIndex();
       require(balances[account] >= amount, "rabase token: not enough balance");
       balances[account] -= amount;
       _totalSupply -= amount;

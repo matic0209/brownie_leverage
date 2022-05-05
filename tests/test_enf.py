@@ -34,7 +34,7 @@ def test_can_get_latest_price(
 
     # balance = deploy_ef.balanceOf(account_crv, {"from": account})
     # log("balance of enf", str(balance))
-    listen_for_event(deploy_vault, "CFFDeposit", 200, 2)
+    # listen_for_event(deploy_vault, "CFFDeposit", 200, 2)
     log("ef balance ", str(deploy_el.balanceOf(account)))
 
     volumne = deploy_vault.getVolume()
