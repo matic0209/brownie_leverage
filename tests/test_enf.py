@@ -23,7 +23,7 @@ def test_can_get_latest_price(
     log("balance of account eth before", str(balance_before))
 
     tx = deploy_vault.deposit(
-        Wei("10 ether"),
+        Wei("100 ether"),
         {
             "from": account,
             "gas_price": 100,
