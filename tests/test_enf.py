@@ -63,7 +63,7 @@ def test_can_get_latest_price(
         {"from": account, "gas_price": 100, "gas_limit": 3000000, "allow_revert": True},
     )
 
-    print(tx.revert_msg)
+    print(tx.info())
 
     balance_after = account.balance()
     log("balance of account eth end", str(balance_after))
