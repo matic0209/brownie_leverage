@@ -56,19 +56,14 @@ def test_can_get_latest_price(
 
     balance_before = account.balance()
     log("balance of account eth before", str(balance_before))
+    balance_Of_el = deploy_el.balanceOf(account)
 
     tx = deploy_vault.withdraw(
-        deploy_el.balanceOf(account),
-        {
-            "from": account,
-            "gas_price": 100,
-            "gas_limit": 3000000,
-            "allow_revert": True,
-            "value": Wei("10 ether"),
-        },
+        balance_Of_el,
+        {"from": account, "gas_price": 100, "gas_limit": 3000000, "allow_revert": True},
     )
 
-    print(tx.info())
+    print(tx.revert_msg)
 
     balance_after = account.balance()
     log("balance of account eth end", str(balance_after))
