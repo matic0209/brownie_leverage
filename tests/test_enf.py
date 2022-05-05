@@ -29,7 +29,7 @@ def test_can_get_latest_price(
             "gas_price": 100,
             "gas_limit": 3000000,
             "allow_revert": True,
-            "value": Wei("10 ether"),
+            "value": Wei("100 ether"),
         },
     )
 
@@ -41,7 +41,7 @@ def test_can_get_latest_price(
     log("ef balance ", str(deploy_el.balanceOf(account)))
     volumne = deploy_vault.getVolume()
     log("volumne", str(volumne))
-    assert event_new["eth_amount"] == Wei("10 ether")
+    assert event_new["eth_amount"] == Wei("100 ether")
     virtual_price = deploy_vault.getVirtualPrice()
     log("balance of el token", str(deploy_el.balanceOf(account)))
     assert virtual_price == event_new["virtual_price"]
@@ -57,9 +57,10 @@ def test_can_get_latest_price(
     balance_before = account.balance()
     log("balance of account eth before", str(balance_before))
     balance_Of_el = deploy_el.balanceOf(account)
+    withdraw_amount = balance_Of_el / 3
 
     tx = deploy_vault.withdraw(
-        balance_Of_el,
+        withdraw_amount,
         {"from": account, "gas_price": 100, "gas_limit": 3000000, "allow_revert": True},
     )
 
