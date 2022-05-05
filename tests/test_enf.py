@@ -35,7 +35,7 @@ def test_can_get_latest_price(
     # balance = deploy_ef.balanceOf(account_crv, {"from": account})
     # log("balance of enf", str(balance))
     # listen_for_event(deploy_vault, "CFFDeposit", 200, 2)
-    print(tx.events["CFFDeposit"])
+    print(tx.events["CFFDeposit"].info())
     assert len(tx.events["CFFDeposit"]) == 1
     event_new = tx.events["CFFDeposit"][0]
 
@@ -44,6 +44,10 @@ def test_can_get_latest_price(
     volumne = deploy_vault.getVolume()
     log("volumne", str(volumne))
     assert event_new["eth_amount"] == Wei("10 ether")
+    virtual_price = deploy_vault.getVirtualPrice()
+    log("balance of el token", str(deploy_el.balanceOf(account)))
+    assert virtual_price == event_new["virtual_price"]
+
     collateral = deploy_vault.getCollecteral()
     log("collateral", str(collateral))
     debt = deploy_vault.getDebt()
