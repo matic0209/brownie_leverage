@@ -58,7 +58,7 @@ def test_can_get_latest_price(
     log("balance of account eth before", str(balance_before))
 
     tx = deploy_vault.withdraw(
-        deploy_el.balanceOf(account) / 2,
+        deploy_el.balanceOf(account),
         {
             "from": account,
             "gas_price": 100,
