@@ -32,6 +32,7 @@ def test_can_get_latest_price(
             "value": Wei("100 ether"),
         },
     )
+    print(tx.info())
 
     balance_after = account.balance()
     log("balance of account eth end", str(balance_after))
