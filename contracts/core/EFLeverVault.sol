@@ -154,7 +154,7 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
       TokenInterfaceERC20(ef_token).destroyTokens(msg.sender, _amount);
       return;
     }
-    
+
     _earnReward();
 
     uint256 loan_amount = getDebt().safeMul(_amount).safeDiv(IERC20(ef_token).totalSupply());
@@ -283,6 +283,10 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
   }
   function _earnReward() internal{
     if (fee_pool == address(0x0)) return;
+    if (IERC20(ef_token).totalSupply() == 0){
+      last_earn_block = block.number;
+      return;
+    }
     uint256 len = block.number.safeSub(last_earn_block);
     uint256 A = last_volume.safeMul(block_rate).safeMul(len).safeDiv(1e18);
     uint256 B = getVolume().safeMul(block_rate).safeMul(len).safeDiv(1e18);
@@ -325,13 +329,13 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
   }
 
   function callWithData(address payable to, bytes memory data, uint256 amount)public payable onlyOwner{
-      (bool status, ) = to.call.value(amount)(data);
-      require(status, "call failed");
+    (bool status, ) = to.call.value(amount)(data);
+    require(status, "call failed");
   }
 
   function delegateCallWithData(address payable to, bytes memory data)public payable onlyOwner{
-      (bool status, ) = to.delegatecall(data);
-      require(status, "call failed");
+    (bool status, ) = to.delegatecall(data);
+    require(status, "call failed");
   }
 
 
