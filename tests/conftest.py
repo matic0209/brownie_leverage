@@ -111,7 +111,7 @@ def deploy_vault(deploy_el, gett_token_tl, deploy_safemath):
         deploy_el.address, {"from": account, "gas_limit": 12000000000000}
     )
     ef_vault.tx.wait(1)
-    print(tx.info())
+    print(ef_vault.tx.info())
     tx = gett_token_tl.add_trusted(ef_vault.address, {"from": account})
     tx.wait(1)
     return ef_vault
