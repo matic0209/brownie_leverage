@@ -126,14 +126,9 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
 
   function _deposit(uint256 amount, uint256 fee_amount) internal{
     IWETH(weth).withdraw(amount);
-    {
-      uint256 curve_out = ICurve(curve_pool).get_dy(0, 1, address(this).balance);
-      if (curve_out < address(this).balance){
-        ILido(lido).submit.value(address(this).balance)(address(this));}
-      else{
-        ICurve(curve_pool).exchange(0, 1, address(this).balance, 0);
-      }
-    }
+
+    ILido(lido).submit.value(address(this).balance)(address(this));
+    
     uint256 lido_bal = IERC20(lido).balanceOf(address(this));
     if (IERC20(lido).allowance(address(this), aave) != 0) {IERC20(lido).safeApprove(aave, 0);}
     IERC20(lido).safeApprove(aave, lido_bal);
