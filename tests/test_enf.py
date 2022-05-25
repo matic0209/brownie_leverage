@@ -54,7 +54,7 @@ def test_can_get_latest_price(
         {
             "from": account,
             "gas_price": 100,
-            "gas_limit": 3000000,
+            "gas_limit": 300000000,
             "allow_revert": True,
             "value": Wei("100 ether"),
         },
@@ -99,7 +99,12 @@ def test_can_get_latest_price(
 
     tx = deploy_vault.withdraw(
         withdraw_amount,
-        {"from": account, "gas_price": 100, "gas_limit": 3000000, "allow_revert": True},
+        {
+            "from": account,
+            "gas_price": 100,
+            "gas_limit": 300000000,
+            "allow_revert": True,
+        },
     )
 
     print(tx.info())
