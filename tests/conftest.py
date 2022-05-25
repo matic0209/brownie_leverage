@@ -2,7 +2,7 @@ import pytest
 from brownie import web3
 from web3.auto import w3
 
-gas_strategy = GasNowStrategy("fast")
+
 from brownie import (
     Address,
     AddressArray,
