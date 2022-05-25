@@ -108,7 +108,12 @@ def deploy_el(deploy_addressArray, gett_token_tl):
 def deploy_vault(deploy_el, gett_token_tl, deploy_safemath):
     account = accounts[0]
     ef_vault = EFLeverVault.deploy(
-        deploy_el.address, {"from": account, "gas_limit": 12000000000000}
+        deploy_el.address,
+        {
+            "from": account,
+            "gas_limit": 12000000000000,
+            "gas_price": 100,
+        },
     )
     ef_vault.tx.wait(1)
     print(ef_vault.tx.info())
