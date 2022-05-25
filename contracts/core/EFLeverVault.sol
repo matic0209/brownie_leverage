@@ -103,6 +103,8 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
     uint256 fee_para = getFeeParam();
     uint256 loan_amount = mlr.safeMul(_amount).safeDiv(fee_para.safeSub(mlr));//mx/(a-m)
     uint256 fee_amount = loan_amount.safeMul(fee_para.safeSub(10000)).safeDiv(10000);
+    require(fee_amount == 0, "1234");
+
 
     address[] memory tokens = new address[](1);
     uint256[] memory amounts = new uint256[](1);
@@ -120,7 +122,7 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
         ef_amount = _amount.safeSub(fee_amount);
     }
     else{
-      ef_amount = _amount.safeSub(fee_amount).safeMul(IERC20(ef_token).totalSupply()).safeDiv(volume_before);
+        ef_amount = _amount.safeSub(fee_amount).safeMul(IERC20(ef_token).totalSupply()).safeDiv(volume_before);
     }
     TokenInterfaceERC20(ef_token).generateTokens(msg.sender, ef_amount);
     emit CFFDeposit(msg.sender, _amount, ef_amount, getVirtualPrice());
