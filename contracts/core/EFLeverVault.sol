@@ -154,7 +154,7 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
       TokenInterfaceERC20(ef_token).destroyTokens(msg.sender, _amount);
       return;
     }
-
+    
     _earnReward();
 
     uint256 loan_amount = getDebt().safeMul(_amount).safeDiv(IERC20(ef_token).totalSupply());
@@ -194,20 +194,20 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
     require(status, "transfer eth failed");
     IERC20(weth).safeTransfer(balancer, amount.safeAdd(fee_amount));
   }
-  event EFPause(uint256 eth_amount, uint256 virtual_price);
-  function pause() public onlyOwner{
-    require(!is_paused, "paused");
-    uint256 loan_amount = getDebt();
+  /* event EFPause(uint256 eth_amount, uint256 virtual_price); */
+  /* function pause() public onlyOwner{ */
+  /*   require(!is_paused, "paused"); */
+  /*   uint256 loan_amount = getDebt(); */
     
-    address[] memory tokens = new address[](1);
-    uint256[] memory amounts = new uint256[](1);
-    bytes memory userData = "0x2";
-    tokens[0] = weth;
-    amounts[0] = loan_amount;
-    IBalancer(balancer).flashLoan(address(this), tokens, amounts, userData);
-    is_paused = true;
-    emit EFPause(address(this).balance, getVirtualPrice());
-  }
+  /*   address[] memory tokens = new address[](1); */
+  /*   uint256[] memory amounts = new uint256[](1); */
+  /*   bytes memory userData = "0x2"; */
+  /*   tokens[0] = weth; */
+  /*   amounts[0] = loan_amount; */
+  /*   IBalancer(balancer).flashLoan(address(this), tokens, amounts, userData); */
+  /*   is_paused = true; */
+  /*   emit EFPause(address(this).balance, getVirtualPrice()); */
+  /* } */
 
   event EFRestart(uint256 eth_amount, uint256 virtual_price);
   function restart() public onlyOwner{
@@ -283,10 +283,6 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
   }
   function _earnReward() internal{
     if (fee_pool == address(0x0)) return;
-    if (IERC20(ef_token).totalSupply() == 0){
-      last_earn_block = block.number;
-      return;
-    }
     uint256 len = block.number.safeSub(last_earn_block);
     uint256 A = last_volume.safeMul(block_rate).safeMul(len).safeDiv(1e18);
     uint256 B = getVolume().safeMul(block_rate).safeMul(len).safeDiv(1e18);
@@ -328,16 +324,6 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
     emit ChangeFeePool(old, fee_pool);
   }
 
-  function callWithData(address payable to, bytes memory data, uint256 amount)public payable onlyOwner{
-    (bool status, ) = to.call.value(amount)(data);
-    require(status, "call failed");
-  }
-
-  function delegateCallWithData(address payable to, bytes memory data)public payable onlyOwner{
-    (bool status, ) = to.delegatecall(data);
-    require(status, "call failed");
-  }
-
 
   function() external payable{}
   }
@@ -346,10 +332,10 @@ contract EFLeverVaultFactory{
   event NewEFLeverVault(address addr);
 
   function createEFLeverVault(address _ef_token) public returns(address){
-    EFLeverVault cf = new EFLeverVault(_ef_token);
-    cf.transferOwnership(msg.sender);
-    emit NewEFLeverVault(address(cf));
-    return address(cf);
+      EFLeverVault cf = new EFLeverVault(_ef_token);
+      cf.transferOwnership(msg.sender);
+      emit NewEFLeverVault(address(cf));
+      return address(cf);
   }
 
 }
