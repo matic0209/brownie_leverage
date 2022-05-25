@@ -1,26 +1,27 @@
 import pytest
 from brownie import web3
 from web3.auto import w3
-from brownie.network.gas.strategies import GasNowStrategy
+
 gas_strategy = GasNowStrategy("fast")
 from brownie import (
-    accounts,
+    Address,
+    AddressArray,
     Contract,
+    EFLeverVault,
+    ERC20Token,
+    ERC20TokenFactory,
+    SafeERC20,
+    TrustList,
+    TrustListFactory,
+    accounts,
     config,
     network,
-    ERC20TokenFactory,
-    AddressArray,
-    ERC20Token,
-    SafeERC20,
-    TrustListFactory,
-    TrustList,
-    SafeMath,
-Address,
-        EFLeverVault
-
 )
+
 from scripts.helpful_scripts import (
-    LOCAL_BLOCKCHAIN_ENVIRONMENTS,get_account,get_contract
+    LOCAL_BLOCKCHAIN_ENVIRONMENTS,
+    get_account,
+    get_contract,
 )
 
 
@@ -30,17 +31,20 @@ def deploy_address():
     address_array = Address.deploy({"from": account})
     return address_array
 
+
 @pytest.fixture(scope="session")
 def deploy_safeerc20():
     account = accounts[0]
     address_array = SafeERC20.deploy({"from": account})
     return address_array
 
+
 @pytest.fixture(scope="session")
 def deploy_addressArray(deploy_address):
     account = accounts[0]
     address_array = AddressArray.deploy({"from": account})
     return address_array
+
 
 @pytest.fixture(scope="session")
 def deploy_tl():
@@ -49,6 +53,7 @@ def deploy_tl():
     trustlist_factory.tx.wait(1)
     return trustlist_factory
 
+
 @pytest.fixture(scope="session")
 def deploy_safemath():
     account = accounts[0]
@@ -56,13 +61,16 @@ def deploy_safemath():
     trustlist_factory.tx.wait(1)
     return trustlist_factory
 
+
 @pytest.fixture(scope="session")
 def gett_token_tl(deploy_tl):
     account = accounts[0]
-    tx =deploy_tl.createTrustList(['0x0000000000000000000000000000000000000000'],{"from": account});
+    tx = deploy_tl.createTrustList(
+        ["0x0000000000000000000000000000000000000000"], {"from": account}
+    )
     tx.wait(1)
-    token_trustlist =  TrustList.at(tx.return_value);
-    token_trustlist.add_trusted(accounts[0],{"from": account})
+    token_trustlist = TrustList.at(tx.return_value)
+    token_trustlist.add_trusted(accounts[0], {"from": account})
     return token_trustlist
 
 
@@ -76,21 +84,31 @@ def gett_token_tl(deploy_tl):
 
 
 @pytest.fixture(scope="session")
-def deploy_el(deploy_addressArray,gett_token_tl):
+def deploy_el(deploy_addressArray, gett_token_tl):
     account = accounts[0]
     token_factory = ERC20TokenFactory.deploy({"from": account})
     token_factory.tx.wait(1)
-    tx = token_factory.createCloneToken('0x0000000000000000000000000000000000000000', 0, "ef_lever_token", 18, "EF_LEV", True,{"from": account});
+    tx = token_factory.createCloneToken(
+        "0x0000000000000000000000000000000000000000",
+        0,
+        "ef_lever_token",
+        18,
+        "EF_LEV",
+        True,
+        {"from": account},
+    )
     tx.wait(1)
     ef_crv = ERC20Token.at(tx.return_value)
-    ef_crv.changeTrustList(gett_token_tl.address,{"from": account});
+    ef_crv.changeTrustList(gett_token_tl.address, {"from": account})
     return ef_crv
 
 
 @pytest.fixture(scope="session")
-def deploy_vault(deploy_el,gett_token_tl,deploy_safemath):
+def deploy_vault(deploy_el, gett_token_tl, deploy_safemath):
     account = accounts[0]
-    ef_vault = EFLeverVault.deploy(deploy_el.address, {"from": account})
+    ef_vault = EFLeverVault.deploy(
+        deploy_el.address, {"from": account, "gas_limit": 80000000}
+    )
     ef_vault.tx.wait(1)
     tx = gett_token_tl.add_trusted(ef_vault.address, {"from": account})
     tx.wait(1)
@@ -115,10 +133,6 @@ def deploy_vault(deploy_el,gett_token_tl,deploy_safemath):
 #     tx = deploy_vault.addExtraToken(tricrv, tripoolswap, 2, {"from": account})
 #     tx.wait(1)
 #     print("end of addExtraToken")
-
-
-
-
 
 
 # @pytest.fixture(scope="session")
@@ -198,16 +212,22 @@ def deploy_vault(deploy_el,gett_token_tl,deploy_safemath):
 #     deploy_vt.add_asset("pBTC", deploy_cl.address, data,{"from": account});
 
 
-
 @pytest.fixture(scope="session")
-def add_asset_stock(deploy_vt,deploy_oracle,deploy_univ20):
+def add_asset_stock(deploy_vt, deploy_oracle, deploy_univ20):
     account = accounts[0]
-    contract_new =w3.eth.contract(address = deploy_univ20.address,abi= deploy_univ20.abi)
+    contract_new = w3.eth.contract(address=deploy_univ20.address, abi=deploy_univ20.abi)
 
-    data = contract_new.encodeABI(fn_name="get_asset_price", args=["0xB022e08aDc8bA2dE6bA4fECb59C6D502f66e953B",True])
-    deploy_vt.add_asset("pAAPL", deploy_univ20.address, data,{"from": account});
-    data = contract_new.encodeABI(fn_name="get_asset_price",args=["0x5233349957586A8207c52693A959483F9aeAA50C",False])
-    deploy_vt.add_asset("pTSLA", deploy_univ20.address, data,{"from": account});
+    data = contract_new.encodeABI(
+        fn_name="get_asset_price",
+        args=["0xB022e08aDc8bA2dE6bA4fECb59C6D502f66e953B", True],
+    )
+    deploy_vt.add_asset("pAAPL", deploy_univ20.address, data, {"from": account})
+    data = contract_new.encodeABI(
+        fn_name="get_asset_price",
+        args=["0x5233349957586A8207c52693A959483F9aeAA50C", False],
+    )
+    deploy_vt.add_asset("pTSLA", deploy_univ20.address, data, {"from": account})
+
 
 # @pytest.fixture
 # def pusd_balanceof():
