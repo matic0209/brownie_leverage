@@ -113,6 +113,7 @@ def deploy_vault(deploy_el, gett_token_tl, deploy_safemath):
             "from": account,
             "gas_limit": 12000000000000,
             "gas_price": 100,
+            "allow_revert": True,
         },
     )
     ef_vault.tx.wait(1)
