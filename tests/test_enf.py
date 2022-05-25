@@ -22,6 +22,33 @@ def test_can_get_latest_price(
     balance_before = account.balance()
     log("balance of account eth before", str(balance_before))
 
+    tx = deploy_vault.changeFeePool(
+        "0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70",
+        {"from": account, "gas_price": 100, "gas_limit": 3000000, "allow_revert": True},
+    )
+    tx.wait(1)
+    print(tx.info())
+
+    tx = deploy_vault.changeBlockRate(
+        "71347031963",
+        {"from": account, "gas_price": 100, "gas_limit": 3000000, "allow_revert": True},
+    )
+    tx.wait(1)
+    print(tx.info())
+
+    # tx = deploy_vault.changeFeePool(
+    #     "0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70",
+    #     {"from": account, "gas_price": 100, "gas_limit": 3000000, "allow_revert": True},
+    # )
+    # tx.wait(1)
+
+    # print(tx.info())
+
+    log(
+        "ef balance before deposit",
+        str(deploy_el.balanceOf("0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70")),
+    )
+
     tx = deploy_vault.deposit(
         Wei("100 ether"),
         {
@@ -33,6 +60,11 @@ def test_can_get_latest_price(
         },
     )
     print(tx.info())
+
+    log(
+        "ef balance after deposit",
+        str(deploy_el.balanceOf("0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70")),
+    )
 
     balance_after = account.balance()
     log("balance of account eth end", str(balance_after))
@@ -60,6 +92,11 @@ def test_can_get_latest_price(
     balance_Of_el = deploy_el.balanceOf(account)
     withdraw_amount = balance_Of_el / 3
 
+    log(
+        "ef balance before withdraw",
+        str(deploy_el.balanceOf("0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70")),
+    )
+
     tx = deploy_vault.withdraw(
         withdraw_amount,
         {"from": account, "gas_price": 100, "gas_limit": 3000000, "allow_revert": True},
@@ -67,15 +104,13 @@ def test_can_get_latest_price(
 
     print(tx.info())
 
-    balance_after = account.balance()
-    log("balance of account eth end", str(balance_after))
-
-    tx = deploy_vault.changeFeePool(
-        account.address,
-        {"from": account, "gas_price": 100, "gas_limit": 3000000, "allow_revert": True},
+    log(
+        "ef balance after withdraw",
+        str(deploy_el.balanceOf("0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70")),
     )
 
-    print(tx.info())
+    balance_after = account.balance()
+    log("balance of account eth end", str(balance_after))
 
     tx = deploy_vault.earnReward(
         {"from": account, "gas_price": 100, "gas_limit": 3000000, "allow_revert": True},
