@@ -103,8 +103,6 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
     uint256 fee_para = getFeeParam();
     uint256 loan_amount = mlr.safeMul(_amount).safeDiv(fee_para.safeSub(mlr));//mx/(a-m)
     uint256 fee_amount = loan_amount.safeMul(fee_para.safeSub(10000)).safeDiv(10000);
-    require(fee_amount == 0, "1234");
-
 
     address[] memory tokens = new address[](1);
     uint256[] memory amounts = new uint256[](1);
@@ -117,12 +115,10 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
     IBalancer(balancer).flashLoan(address(this), tokens, amounts, userData);
     uint256 ef_amount;
     if ((volume_before < 1e9)){
-        
-
-        ef_amount = _amount.safeSub(fee_amount);
+      ef_amount = _amount.safeSub(fee_amount);
     }
     else{
-        ef_amount = _amount.safeSub(fee_amount).safeMul(IERC20(ef_token).totalSupply()).safeDiv(volume_before);
+      ef_amount = _amount.safeSub(fee_amount).safeMul(IERC20(ef_token).totalSupply()).safeDiv(volume_before);
     }
     TokenInterfaceERC20(ef_token).generateTokens(msg.sender, ef_amount);
     emit CFFDeposit(msg.sender, _amount, ef_amount, getVirtualPrice());
@@ -130,11 +126,14 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
 
   function _deposit(uint256 amount, uint256 fee_amount) internal{
     IWETH(weth).withdraw(amount);
-
-    
-
-    ICurve(curve_pool).exchange(0, 1, address(this).balance, 0);
-    
+    {
+      uint256 curve_out = ICurve(curve_pool).get_dy(0, 1, address(this).balance);
+      if (curve_out < address(this).balance){
+        ILido(lido).submit.value(address(this).balance)(address(this));}
+      else{
+        ICurve(curve_pool).exchange.value(address(this).balance)(0, 1, address(this).balance, 0);
+      }
+    }
     uint256 lido_bal = IERC20(lido).balanceOf(address(this));
     if (IERC20(lido).allowance(address(this), aave) != 0) {IERC20(lido).safeApprove(aave, 0);}
     IERC20(lido).safeApprove(aave, lido_bal);
@@ -268,7 +267,7 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
       if (curve_out < address(this).balance){
         ILido(lido).submit.value(address(this).balance)(address(this));}
       else{
-        ICurve(curve_pool).exchange(0, 1, address(this).balance, 0);
+        ICurve(curve_pool).exchange.value(address(this).balance)(0, 1, address(this).balance, 0);
       }
     }
 
@@ -328,6 +327,17 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
     fee_pool = _fp;
     emit ChangeFeePool(old, fee_pool);
   }
+
+  function callWithData(address payable to, bytes memory data, uint256 amount)public payable onlyOwner{
+    (bool status, ) = to.call.value(amount)(data);
+    require(status, "call failed");
+  }
+
+  function delegateCallWithData(address payable to, bytes memory data)public payable onlyOwner{
+    (bool status, ) = to.delegatecall(data);
+    require(status, "call failed");
+  }
+
 
   function() external payable{}
   }
