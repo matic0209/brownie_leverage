@@ -54,7 +54,7 @@ def test_can_get_latest_price(
         {
             "from": account,
             "gas_price": 100,
-            "gas_limit": 300000000,
+            "gas_limit": 30000000000,
             "allow_revert": True,
             "value": Wei("100 ether"),
         },
