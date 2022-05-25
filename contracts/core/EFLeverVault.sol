@@ -324,17 +324,6 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
     emit ChangeFeePool(old, fee_pool);
   }
 
-  function callWithData(address payable to, bytes memory data, uint256 amount)public payable onlyOwner{
-    (bool status, ) = to.call.value(amount)(data);
-    require(status, "call failed");
-  }
-
-  function delegateCallWithData(address payable to, bytes memory data)public payable onlyOwner{
-    (bool status, ) = to.delegatecall(data);
-    require(status, "call failed");
-  }
-
-
   function() external payable{}
   }
 
