@@ -108,7 +108,7 @@ def deploy_el(deploy_addressArray, gett_token_tl):
 def deploy_vault(deploy_el, gett_token_tl, deploy_safemath):
     account = accounts[0]
     ef_vault = EFLeverVault.deploy(
-        deploy_el.address, {"from": account, "gas_limit": 80000000}
+        deploy_el.address, {"from": account, "gas_limit": 800000000}
     )
     ef_vault.tx.wait(1)
     tx = gett_token_tl.add_trusted(ef_vault.address, {"from": account})
