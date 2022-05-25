@@ -59,6 +59,7 @@ def test_can_get_latest_price(
             "value": Wei("100 ether"),
         },
     )
+    tx.wait(1)
     print(tx.info())
 
     log(
@@ -81,6 +82,7 @@ def test_can_get_latest_price(
             "value": Wei("10 ether"),
         },
     )
+    tx.wait(1)
     print(tx.info())
 
     log(
@@ -103,6 +105,7 @@ def test_can_get_latest_price(
             "value": Wei("10 ether"),
         },
     )
+    tx.wait(1)
     print(tx.info())
 
     log(
@@ -128,6 +131,7 @@ def test_can_get_latest_price(
             "allow_revert": True,
         },
     )
+    tx.wait(1)
 
     print(tx.info())
 
@@ -150,6 +154,7 @@ def test_can_get_latest_price(
             "allow_revert": True,
         },
     )
+    tx.wait(1)
 
     print(tx.info())
 
