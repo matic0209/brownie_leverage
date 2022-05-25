@@ -10,6 +10,7 @@ from brownie import (
     EFLeverVault,
     ERC20Token,
     ERC20TokenFactory,
+    SafeMath,
     SafeERC20,
     TrustList,
     TrustListFactory,
