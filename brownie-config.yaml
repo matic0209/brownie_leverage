@@ -32,7 +32,7 @@ networks:
         staker: "0x3Fe65692bfCD0e6CF84cB1E7d24108E434A7587e"
         cmd_settings:
             default_balance: 2000
-            gas_limit: 12000000000000
+            gas_limit: 1200000000000000
             unlock:
               - 0xCFFAd3200574698b78f32232aa9D63eABD290703 # DAO's upgratable Agent
     ganache:
