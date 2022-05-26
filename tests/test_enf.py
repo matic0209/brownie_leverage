@@ -30,13 +30,6 @@ def test_can_get_latest_price(
     tx.wait(1)
     print(tx.info())
 
-    tx = deploy_vault.changeBlockRate(
-        "71347031963",
-        {"from": account, "gas_price": 100, "gas_limit": 3000000, "allow_revert": True},
-    )
-    tx.wait(1)
-    print(tx.info())
-
     # tx = deploy_vault.changeFeePool(
     #     "0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70",
     #     {"from": account, "gas_price": 100, "gas_limit": 3000000, "allow_revert": True},
