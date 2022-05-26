@@ -22,8 +22,9 @@ def test_can_get_latest_price(
     balance_before = account.balance()
     log("balance of account eth before", str(balance_before))
 
-    tx = deploy_vault.changeFeePool(
+    tx = deploy_vault.changeFeeConfig(
         "0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70",
+        "11891171994",
         {"from": account, "gas_price": 100, "gas_limit": 3000000, "allow_revert": True},
     )
     tx.wait(1)
