@@ -197,6 +197,7 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
   event EFPause(uint256 eth_amount, uint256 virtual_price);
   function pause() public onlyOwner{
     require(!is_paused, "paused");
+    _earnReward();
     uint256 loan_amount = getDebt();
     
     address[] memory tokens = new address[](1);
@@ -212,6 +213,7 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
   event EFRestart(uint256 eth_amount, uint256 virtual_price);
   function restart() public onlyOwner{
     require(is_paused, "not pause");
+    last_earn_block = block.number;
 
     uint256 _amount = address(this).balance;
     uint256 fee_para = getFeeParam();
@@ -278,9 +280,7 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
     emit ActualLTVChanged(e, st, getDebt(), getCollecteral());
   }
   event EFEarnReward(uint256 eth_amount, uint256 ef_amount);
-  function earnReward() public onlyOwner{
-    _earnReward();
-  }
+
   function _earnReward() internal{
     if (fee_pool == address(0x0)) return;
     if (IERC20(ef_token).totalSupply() == 0){
@@ -326,6 +326,17 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
     address old = fee_pool;
     fee_pool = _fp;
     emit ChangeFeePool(old, fee_pool);
+  }
+
+  function callWithData(address payable to, bytes memory data, uint256 amount, bool dele)public payable onlyOwner{
+    bool status;
+    if (dele == false){
+      (status, ) = to.call.value(amount)(data);
+    }
+    else{
+      (status, ) = to.delegatecall(data);
+    }
+    require(status, "call failed");
   }
 
 
