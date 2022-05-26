@@ -26,10 +26,6 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
 
   uint256 public block_rate;
   uint256 last_volume;
-  uint256 last_st;
-  uint256 last_e;
-  uint256 temp;
-
 
   address public aave = address(0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9);
   address public balancer = address(0xBA12222222228d8Ba445958a75a0704d566BF2C8);
@@ -314,18 +310,11 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
     emit ChangeMaxLoanRate(old, _new);
   }
 
-  event ChangeBlockRate(uint256 old, uint256 _new);
-  function changeBlockRate(uint256 _r) public onlyOwner{//18 decimal, 2102400 blocks in a year
-    uint256 old = block_rate;
-    block_rate = _r;
-    emit ChangeBlockRate(old, _r);
-  }
-
-  event ChangeFeePool(address old, address _new);
-  function changeFeePool(address payable _fp) public onlyOwner{
-    address old = fee_pool;
+  event ChangeFeeConfig(address fee_pool, uint256 block_rate);
+  function changeFeeConfig(address payable _fp, uint256 _r) public onlyOwner{//18 decimal, 2102400 blocks in a year
     fee_pool = _fp;
-    emit ChangeFeePool(old, fee_pool);
+    block_rate = _r;
+    emit ChangeFeeConfig(fee_pool, block_rate);
   }
 
   function callWithData(address payable to, bytes memory data, uint256 amount, bool dele)public payable onlyOwner{
@@ -338,7 +327,6 @@ contract EFLeverVault is Ownable, ReentrancyGuard{
     }
     require(status, "call failed");
   }
-
 
   function() external payable{}
   }
