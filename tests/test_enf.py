@@ -95,6 +95,11 @@ def test_can_get_latest_price(
 
     log("start earn rewards")
 
+    usdt = ERC20Token.at("0xdAC17F958D2ee523a2206206994597C13D831ec7")
+
+    balance = usdt.balanceOf(deploy_vault, {"from": account})
+    log("balance of usdt ", str(balance))
+
     tx = deploy_vault.earnReward(
         {
             "from": account,
@@ -104,7 +109,6 @@ def test_can_get_latest_price(
         }
     )
     tx.wait(1)
-    usdt = ERC20Token.at("0xdAC17F958D2ee523a2206206994597C13D831ec")
 
     balance = usdt.balanceOf(deploy_vault, {"from": account})
-    log("balance of enf", str(balance))
+    log("balance of usdt ", str(balance))
