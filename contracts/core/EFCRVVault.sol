@@ -273,10 +273,10 @@ contract EFCRVVault is Ownable, ReentrancyGuard{
       _exchange_weth();
     }
     if (_type == 2){
-      TriPoolInterface(router).remove_liquidity_one_coin(IERC20(_token).balanceOf(address(this)), 2, 0);
+      //TriPoolInterface(router).remove_liquidity_one_coin(IERC20(_token).balanceOf(address(this)), 2, 0);
       IERC20(usdt).safeApprove(eth_usdt_router, 0);
       IERC20(usdt).safeApprove(eth_usdt_router, IERC20(usdt).balanceOf(address(this)));
-      CurveInterface2561(eth_usdt_router).exchange(0, 2, IERC20(usdt).balanceOf(address(this)), 0,true);      
+      CurveInterface256(eth_usdt_router).exchange(0, 2, IERC20(usdt).balanceOf(address(this)), 0);      
       //_exchange_weth();
     }
   }
