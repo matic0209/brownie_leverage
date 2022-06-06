@@ -257,7 +257,7 @@ contract EFCRVVault is Ownable, ReentrancyGuard{
     }else{
       emit EFRefundCRV(crv_amount, 0);
     }
-    //_stake(crv_amount);
+    //  _stake(crv_amount);
   }
   function _handleExtraToken(address _token) internal{
     uint256 _type = reward_types[_token];
@@ -277,7 +277,7 @@ contract EFCRVVault is Ownable, ReentrancyGuard{
       IERC20(usdt).safeApprove(eth_usdt_router, 0);
       IERC20(usdt).safeApprove(eth_usdt_router, IERC20(usdt).balanceOf(address(this)));
       CurveInterface256(eth_usdt_router).exchange(0, 2, IERC20(usdt).balanceOf(address(this)), 0);      
-      _exchange_weth();
+      //_exchange_weth();
     }
   }
   function _exchange_weth() internal{
