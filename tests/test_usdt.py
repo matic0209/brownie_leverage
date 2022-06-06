@@ -53,9 +53,7 @@ def test_can_get_latest_price(
     )
     tx.wait(1)
 
-    tx = interface.CurveInterface256(
-        "0xD51a44d3FaE010294C616388b506AcdA1bfAAE46"
-    ).exchange(
+    tx = interface.CurveNew("0xD51a44d3FaE010294C616388b506AcdA1bfAAE46").exchange(
         0,
         2,
         1931,
