@@ -13,7 +13,6 @@ from brownie import (
     ERC20Token,
     TrustListFactory,
     TrustList,
-    interface.IERC20,
     CurveInterface256,
 )
 
