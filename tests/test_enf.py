@@ -51,6 +51,12 @@ def test_can_get_latest_price(
     )
 
     log("1")
+
+    usdt = ERC20Token.at("0xdAC17F958D2ee523a2206206994597C13D831ec7")
+
+    balance = usdt.balanceOf(deploy_vault, {"from": account})
+    log("balance of usdt before deposit ", str(balance))
+
     deploy_vault.deposit(deposit_amount, {"from": account_crv})
 
     balance = crv.balanceOf(account_crv, {"from": account})
@@ -59,7 +65,6 @@ def test_can_get_latest_price(
     balance = deploy_ef.balanceOf(account_crv, {"from": account})
     log("balance of enf", str(balance))
 
-    withdraw_amount = balance / 10
     # log("withdraw 1")
     # tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
     # tx.wait(1)
@@ -98,7 +103,7 @@ def test_can_get_latest_price(
     usdt = ERC20Token.at("0xdAC17F958D2ee523a2206206994597C13D831ec7")
 
     balance = usdt.balanceOf(deploy_vault, {"from": account})
-    log("balance of usdt ", str(balance))
+    log("balance of usdt after deposit ", str(balance))
 
     tx = deploy_vault.earnReward(
         {
