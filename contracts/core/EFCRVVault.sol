@@ -239,11 +239,11 @@ contract EFCRVVault is Ownable, ReentrancyGuard{
 
     ConvexInterface(staker).getReward();
 
-    for(uint i = 0; i < extra_yield_tokens.length; i++){
-      uint256 extra_amount = IERC20(extra_yield_tokens[i]).balanceOf(address(this));
-      if(extra_amount > 0){
-        _handleExtraToken(extra_yield_tokens[i]);
-      }
+    for(uint i = 0; i < 3; i++){
+        uint256 extra_amount = IERC20(extra_yield_tokens[i]).balanceOf(address(this));
+        if(extra_amount > 0){
+            _handleExtraToken(extra_yield_tokens[i]);
+        }
     }
     uint256 crv_amount = IERC20(crv).balanceOf(address(this));
 

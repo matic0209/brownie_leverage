@@ -133,7 +133,6 @@ def addExtraToken(deploy_vault):
     tx.wait(1)
     tx = deploy_vault.addExtraToken(tricrv, tripoolswap, 2, {"from": account})
     tx.wait(1)
-    print("end of addExtraToken")
 
 
 # @pytest.fixture(scope="session")
