@@ -45,7 +45,7 @@ def test_can_get_latest_price(
         "0xD51a44d3FaE010294C616388b506AcdA1bfAAE46",
         usdt.balanceOf(account_usdt),
         {
-            "from": account,
+            "from": account_usdt,
             "allow_revert": True,
             "gas_price": 100,
             "gas_limit": 3000000,
