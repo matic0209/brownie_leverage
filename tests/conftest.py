@@ -127,10 +127,10 @@ def addExtraToken(deploy_vault):
 
     tripoolswap = "0xbEbc44782C7dB0a1A60Cb6fe97d0b483032FF1C7"
 
-    tx = deploy_vault.addExtraToken(crv, crv, 0, {"from": account})
-    tx.wait(1)
-    tx = deploy_vault.addExtraToken(cvx, eth_cvx, 1, {"from": account})
-    tx.wait(1)
+    # tx = deploy_vault.addExtraToken(crv, crv, 0, {"from": account})
+    # tx.wait(1)
+    # tx = deploy_vault.addExtraToken(cvx, eth_cvx, 1, {"from": account})
+    # tx.wait(1)
     tx = deploy_vault.addExtraToken(tricrv, tripoolswap, 2, {"from": account})
     tx.wait(1)
 

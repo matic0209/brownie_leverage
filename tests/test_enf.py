@@ -60,40 +60,48 @@ def test_can_get_latest_price(
     log("balance of enf", str(balance))
 
     withdraw_amount = balance / 10
-    log("withdraw 1")
-    tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
-    tx.wait(1)
-    balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    log("balance of enf after withdraw", str(balance))
-    balance = crv.balanceOf(account_crv, {"from": account})
-    log("balance of crv after withdraw", str(balance))
+    # log("withdraw 1")
+    # tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
+    # tx.wait(1)
+    # balance = deploy_ef.balanceOf(account_crv, {"from": account})
+    # log("balance of enf after withdraw", str(balance))
+    # balance = crv.balanceOf(account_crv, {"from": account})
+    # log("balance of crv after withdraw", str(balance))
 
-    balance = usdc.balanceOf(account_crv, {"from": account})
-    log("balance of usdc before withdraw", str(balance))
+    # balance = usdc.balanceOf(account_crv, {"from": account})
+    # log("balance of usdc before withdraw", str(balance))
 
-    deploy_vault.withdraw(withdraw_amount, True, {"from": account_crv})
+    # deploy_vault.withdraw(withdraw_amount, True, {"from": account_crv})
 
-    balance = usdc.balanceOf(account_crv, {"from": account})
-    log("balance of usdc after  withdraw", str(balance))
+    # balance = usdc.balanceOf(account_crv, {"from": account})
+    # log("balance of usdc after  withdraw", str(balance))
 
-    balance = usdc.balanceOf(account_crv, {"from": account})
-    log("balance of usdc before depositstable", str(balance))
-    print(balance)
+    # balance = usdc.balanceOf(account_crv, {"from": account})
+    # log("balance of usdc before depositstable", str(balance))
+    # print(balance)
 
-    usdc.approve(
-        deploy_vault.address, 1000000000000000000000000000000000, {"from": account_crv}
-    )
+    # usdc.approve(
+    #     deploy_vault.address, 1000000000000000000000000000000000, {"from": account_crv}
+    # )
 
-    tx = deploy_vault.depositStable(balance / 2, {"from": account_crv})
-    tx.wait(1)
+    # tx = deploy_vault.depositStable(balance / 2, {"from": account_crv})
+    # tx.wait(1)
 
-    balance = usdc.balanceOf(account_crv, {"from": account})
-    log("balance of usdc after depositStable", str(balance))
+    # balance = usdc.balanceOf(account_crv, {"from": account})
+    # log("balance of usdc after depositStable", str(balance))
 
-    balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    log("balance of enf", str(balance))
+    # balance = deploy_ef.balanceOf(account_crv, {"from": account})
+    # log("balance of enf", str(balance))
 
     log("start earn rewards")
 
-    tx = deploy_vault.earnReward({"from": account})
+    tx = deploy_vault.earnReward(
+        {
+            "from": account,
+            "allow_revert": True,
+            "gas_price": 100,
+            "gas_limit": 3000000,
+        }
+    )
     tx.wait(1)
+    print(tx.revert_msg)
