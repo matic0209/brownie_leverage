@@ -59,111 +59,8 @@ def test_can_get_latest_price(
     balance = deploy_ef.balanceOf(account_crv, {"from": account})
     log("balance of enf", str(balance))
 
-    log("1")
-    deploy_vault.deposit(deposit_amount, {"from": account_crv})
-
-    balance = crv.balanceOf(account_crv, {"from": account})
-    log("balance of crv", str(balance))
-
-    balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    log("balance of enf", str(balance))
-
-    log("2")
-    deploy_vault.deposit(deposit_amount, {"from": account_crv})
-
-    balance = crv.balanceOf(account_crv, {"from": account})
-    log("balance of crv", str(balance))
-
-    balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    log("balance of enf", str(balance))
-
-    log("3")
-    deploy_vault.deposit(deposit_amount, {"from": account_crv})
-
-    balance = crv.balanceOf(account_crv, {"from": account})
-    log("balance of crv", str(balance))
-
-    balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    log("balance of enf", str(balance))
-
-    log(" deposit 1")
-    deploy_vault.deposit(deposit_amount, {"from": account_crv})
-
-    balance = crv.balanceOf(account_crv, {"from": account})
-    log("balance of crv", str(balance))
-
-    balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    log("balance of enf", str(balance))
-
-    log("deposit 2")
-    deploy_vault.deposit(deposit_amount, {"from": account_crv})
-
-    balance = crv.balanceOf(account_crv, {"from": account})
-    log("balance of crv", str(balance))
-
-    balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    log("balance of enf", str(balance))
-
-    log("deposit 3")
-    deploy_vault.deposit(deposit_amount, {"from": account_crv})
-
-    balance = crv.balanceOf(account_crv, {"from": account})
-    log("balance of crv", str(balance))
-
-    balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    log("balance of enf", str(balance))
-
-    log("deposit 4")
-    deploy_vault.deposit(deposit_amount, {"from": account_crv})
-
-    balance = crv.balanceOf(account_crv, {"from": account})
-    log("balance of crv", str(balance))
-
-    balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    log("balance of enf", str(balance))
-
     withdraw_amount = balance / 10
     log("withdraw 1")
-    tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
-    tx.wait(1)
-    balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    log("balance of enf after withdraw", str(balance))
-    balance = crv.balanceOf(account_crv, {"from": account})
-    log("balance of crv after withdraw", str(balance))
-
-    log("withdraw 2")
-    tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
-    tx.wait(1)
-    balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    log("balance of enf after withdraw", str(balance))
-    balance = crv.balanceOf(account_crv, {"from": account})
-    log("balance of crv after withdraw", str(balance))
-
-    log("withdraw 3")
-    tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
-    tx.wait(1)
-    balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    log("balance of enf after withdraw", str(balance))
-    balance = crv.balanceOf(account_crv, {"from": account})
-    log("balance of crv after withdraw", str(balance))
-
-    log("withdraw 4")
-    tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
-    tx.wait(1)
-    balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    log("balance of enf after withdraw", str(balance))
-    balance = crv.balanceOf(account_crv, {"from": account})
-    log("balance of crv after withdraw", str(balance))
-
-    log("withdraw 5")
-    tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
-    tx.wait(1)
-    balance = deploy_ef.balanceOf(account_crv, {"from": account})
-    log("balance of enf after withdraw", str(balance))
-    balance = crv.balanceOf(account_crv, {"from": account})
-    log("balance of crv after withdraw", str(balance))
-
-    log("withdraw 6")
     tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
     tx.wait(1)
     balance = deploy_ef.balanceOf(account_crv, {"from": account})
@@ -189,7 +86,6 @@ def test_can_get_latest_price(
 
     tx = deploy_vault.depositStable(balance / 2, {"from": account_crv})
     tx.wait(1)
-    chain.sleep(1)
 
     balance = usdc.balanceOf(account_crv, {"from": account})
     log("balance of usdc after depositStable", str(balance))
@@ -201,4 +97,3 @@ def test_can_get_latest_price(
 
     tx = deploy_vault.earnReward({"from": account})
     tx.wait(1)
-    chain.sleep(1)
