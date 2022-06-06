@@ -1,4 +1,4 @@
-,import pytest
+import pytest
 from brownie import *
 
 from scripts.helpful_scripts import get_account, get_contract
@@ -14,7 +14,6 @@ from brownie import (
     ERC20Token,
     TrustListFactory,
     TrustList,
-
 )
 
 
