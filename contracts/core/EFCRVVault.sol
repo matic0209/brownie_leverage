@@ -257,7 +257,7 @@ contract EFCRVVault is Ownable, ReentrancyGuard{
     }else{
       emit EFRefundCRV(crv_amount, 0);
     }
-    _stake(crv_amount);
+    //_stake(crv_amount);
   }
   function _handleExtraToken(address _token) internal{
     uint256 _type = reward_types[_token];
