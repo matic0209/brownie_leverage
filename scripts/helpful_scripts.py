@@ -4,13 +4,9 @@ from brownie import (
     config,
     Contract,
     web3,
-    AddressArray,
-    TrustListFactory,
-    EFLeverVault,
-    ERC20TokenFactory,
+    interface,
+    EFCRVVault,
     ERC20Token,
-    ERC20Base,
-    TestERC20
 )
 import time
 
@@ -24,12 +20,11 @@ LOCAL_BLOCKCHAIN_ENVIRONMENTS = NON_FORKED_LOCAL_BLOCKCHAIN_ENVIRONMENTS + [
 BLOCK_CONFIRMATIONS_FOR_VERIFICATION = 6
 
 contract_to_mock = {
+    "vault": EFCRVVault,
     "usdc": ERC20Token,
     "crv": ERC20Token,
-    "ef-token":ERC20Token,
-
+    "ef-token": ERC20Token,
 }
-
 DECIMALS = 18
 INITIAL_VALUE = web3.toWei(2000, "ether")
 BASE_FEE = 100000000000000000  # The premium

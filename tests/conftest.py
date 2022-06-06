@@ -1,24 +1,24 @@
 import pytest
 from brownie import web3
 from web3.auto import w3
+from brownie.network.gas.strategies import GasNowStrategy
 
-
+gas_strategy = GasNowStrategy("fast")
 from brownie import (
-    Address,
-    AddressArray,
-    Contract,
-    EFLeverVault,
-    ERC20Token,
-    ERC20TokenFactory,
-    SafeMath,
-    SafeERC20,
-    TrustList,
-    TrustListFactory,
     accounts,
+    Contract,
     config,
     network,
+    ERC20TokenFactory,
+    AddressArray,
+    ERC20Token,
+    SafeERC20,
+    TrustListFactory,
+    TrustList,
+    SafeMath,
+    Address,
+    EFCRVVault,
 )
-
 from scripts.helpful_scripts import (
     LOCAL_BLOCKCHAIN_ENVIRONMENTS,
     get_account,
@@ -85,16 +85,16 @@ def gett_token_tl(deploy_tl):
 
 
 @pytest.fixture(scope="session")
-def deploy_el(deploy_addressArray, gett_token_tl):
+def deploy_ef(deploy_addressArray, gett_token_tl):
     account = accounts[0]
     token_factory = ERC20TokenFactory.deploy({"from": account})
     token_factory.tx.wait(1)
     tx = token_factory.createCloneToken(
         "0x0000000000000000000000000000000000000000",
         0,
-        "ef_lever_token",
+        "ef_curve_token",
         18,
-        "EF_LEV",
+        "EF_CRV",
         True,
         {"from": account},
     )
@@ -105,42 +105,35 @@ def deploy_el(deploy_addressArray, gett_token_tl):
 
 
 @pytest.fixture(scope="session")
-def deploy_vault(deploy_el, gett_token_tl, deploy_safemath):
+def deploy_vault(deploy_ef, gett_token_tl, deploy_safemath):
     account = accounts[0]
-    ef_vault = EFLeverVault.deploy(
-        deploy_el.address,
-        {
-            "from": account,
-            "gas_limit": 12000000000000,
-            "gas_price": 100,
-            "allow_revert": True,
-        },
+    ef_vault = EFCRVVault.deploy(
+        deploy_ef.address, {"from": account, "gas_limit": 80000000}
     )
     ef_vault.tx.wait(1)
-    print(ef_vault.tx.info())
     tx = gett_token_tl.add_trusted(ef_vault.address, {"from": account})
     tx.wait(1)
     return ef_vault
 
 
-# @pytest.fixture(scope="session")
-# def addExtraToken(deploy_vault):
-#     account = accounts[0]
+@pytest.fixture(scope="session")
+def addExtraToken(deploy_vault):
+    account = accounts[0]
 
-#     crv = "0xD533a949740bb3306d119CC777fa900bA034cd52";
-#     cvx = "0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B";
-#     eth_cvx = "0xb576491f1e6e5e62f1d8f26062ee822b40b0e0d4";
-#     tricrv = "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490";
+    crv = "0xD533a949740bb3306d119CC777fa900bA034cd52"
+    cvx = "0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B"
+    eth_cvx = "0xb576491f1e6e5e62f1d8f26062ee822b40b0e0d4"
+    tricrv = "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
 
-#     tripoolswap = "0xbEbc44782C7dB0a1A60Cb6fe97d0b483032FF1C7";
+    tripoolswap = "0xbEbc44782C7dB0a1A60Cb6fe97d0b483032FF1C7"
 
-#     tx = deploy_vault.addExtraToken(crv, crv, 0, {"from": account})
-#     tx.wait(1)
-#     tx = deploy_vault.addExtraToken(cvx, eth_cvx, 1, {"from": account})
-#     tx.wait(1)
-#     tx = deploy_vault.addExtraToken(tricrv, tripoolswap, 2, {"from": account})
-#     tx.wait(1)
-#     print("end of addExtraToken")
+    tx = deploy_vault.addExtraToken(crv, crv, 0, {"from": account})
+    tx.wait(1)
+    tx = deploy_vault.addExtraToken(cvx, eth_cvx, 1, {"from": account})
+    tx.wait(1)
+    tx = deploy_vault.addExtraToken(tricrv, tripoolswap, 2, {"from": account})
+    tx.wait(1)
+    print("end of addExtraToken")
 
 
 # @pytest.fixture(scope="session")

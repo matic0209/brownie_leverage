@@ -1,7 +1,19 @@
-from brownie import Wei, accounts
-from conftest import *
+import pytest
+from brownie import *
 
-from scripts.helpful_scripts import get_account, get_contract, listen_for_event
+from scripts.helpful_scripts import get_account, get_contract
+from conftest import *
+from brownie import (
+    accounts,
+    Contract,
+    config,
+    network,
+    ERC20TokenFactory,
+    AddressArray,
+    ERC20Token,
+    TrustListFactory,
+    TrustList,
+)
 
 
 def log(text, desc=""):
@@ -13,203 +25,180 @@ def test_can_get_latest_price(
     deploy_addressArray,
     deploy_tl,
     gett_token_tl,
-    deploy_el,
+    deploy_ef,
     deploy_vault,
+    addExtraToken,
 ):
+    # Arrange
 
+    # address = get_contract("eth_usd_price_feed").address
+    # # Act
+    # price_feed = PriceFeedConsumer.deploy(address, {"from": get_account()})
+    # # Assert
+    # value = price_feed.getLatestPrice({"from": get_account()})
+
+    account_crv = accounts[-1]
     account = accounts[0]
+    log("add _asset ")
+    crv = get_contract("crv")
+    usdc = get_contract("usdc")
 
-    balance_before = account.balance()
-    log("balance of account eth before", str(balance_before))
+    balance = crv.balanceOf(account_crv, {"from": account})
+    deposit_amount = balance / 10
 
-    tx = deploy_vault.changeFeeConfig(
-        "0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70",
-        "11891171994",
-        {"from": account, "gas_price": 100, "gas_limit": 3000000, "allow_revert": True},
+    crv.approve(
+        deploy_vault.address, 1000000000000000000000000000000000, {"from": account_crv}
     )
+
+    log("1")
+    deploy_vault.deposit(deposit_amount, {"from": account_crv})
+
+    balance = crv.balanceOf(account_crv, {"from": account})
+    log("balance of crv", str(balance))
+
+    balance = deploy_ef.balanceOf(account_crv, {"from": account})
+    log("balance of enf", str(balance))
+
+    log("1")
+    deploy_vault.deposit(deposit_amount, {"from": account_crv})
+
+    balance = crv.balanceOf(account_crv, {"from": account})
+    log("balance of crv", str(balance))
+
+    balance = deploy_ef.balanceOf(account_crv, {"from": account})
+    log("balance of enf", str(balance))
+
+    log("2")
+    deploy_vault.deposit(deposit_amount, {"from": account_crv})
+
+    balance = crv.balanceOf(account_crv, {"from": account})
+    log("balance of crv", str(balance))
+
+    balance = deploy_ef.balanceOf(account_crv, {"from": account})
+    log("balance of enf", str(balance))
+
+    log("3")
+    deploy_vault.deposit(deposit_amount, {"from": account_crv})
+
+    balance = crv.balanceOf(account_crv, {"from": account})
+    log("balance of crv", str(balance))
+
+    balance = deploy_ef.balanceOf(account_crv, {"from": account})
+    log("balance of enf", str(balance))
+
+    log(" deposit 1")
+    deploy_vault.deposit(deposit_amount, {"from": account_crv})
+
+    balance = crv.balanceOf(account_crv, {"from": account})
+    log("balance of crv", str(balance))
+
+    balance = deploy_ef.balanceOf(account_crv, {"from": account})
+    log("balance of enf", str(balance))
+
+    log("deposit 2")
+    deploy_vault.deposit(deposit_amount, {"from": account_crv})
+
+    balance = crv.balanceOf(account_crv, {"from": account})
+    log("balance of crv", str(balance))
+
+    balance = deploy_ef.balanceOf(account_crv, {"from": account})
+    log("balance of enf", str(balance))
+
+    log("deposit 3")
+    deploy_vault.deposit(deposit_amount, {"from": account_crv})
+
+    balance = crv.balanceOf(account_crv, {"from": account})
+    log("balance of crv", str(balance))
+
+    balance = deploy_ef.balanceOf(account_crv, {"from": account})
+    log("balance of enf", str(balance))
+
+    log("deposit 4")
+    deploy_vault.deposit(deposit_amount, {"from": account_crv})
+
+    balance = crv.balanceOf(account_crv, {"from": account})
+    log("balance of crv", str(balance))
+
+    balance = deploy_ef.balanceOf(account_crv, {"from": account})
+    log("balance of enf", str(balance))
+
+    withdraw_amount = balance / 10
+    log("withdraw 1")
+    tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
     tx.wait(1)
-    print(tx.info())
+    balance = deploy_ef.balanceOf(account_crv, {"from": account})
+    log("balance of enf after withdraw", str(balance))
+    balance = crv.balanceOf(account_crv, {"from": account})
+    log("balance of crv after withdraw", str(balance))
 
-    # tx = deploy_vault.changeFeePool(
-    #     "0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70",
-    #     {"from": account, "gas_price": 100, "gas_limit": 3000000, "allow_revert": True},
-    # )
-    # tx.wait(1)
-
-    # print(tx.info())
-
-    log(
-        "ef balance before deposit",
-        str(deploy_el.balanceOf("0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70")),
-    )
-
-    tx = deploy_vault.deposit(
-        Wei("100 ether"),
-        {
-            "from": account,
-            "gas_price": 100,
-            "gas_limit": 30000000000,
-            "allow_revert": True,
-            "value": Wei("100 ether"),
-        },
-    )
+    log("withdraw 2")
+    tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
     tx.wait(1)
-    print(tx.info())
+    balance = deploy_ef.balanceOf(account_crv, {"from": account})
+    log("balance of enf after withdraw", str(balance))
+    balance = crv.balanceOf(account_crv, {"from": account})
+    log("balance of crv after withdraw", str(balance))
 
-    log(
-        "ef balance after deposit",
-        str(deploy_el.balanceOf("0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70")),
-    )
-
-    log(
-        "ef balance before deposit 1",
-        str(deploy_el.balanceOf("0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70")),
-    )
-
-    tx = deploy_vault.deposit(
-        Wei("10 ether"),
-        {
-            "from": account,
-            "gas_price": 100,
-            "gas_limit": 30000000000,
-            "allow_revert": True,
-            "value": Wei("10 ether"),
-        },
-    )
+    log("withdraw 3")
+    tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
     tx.wait(1)
-    print(tx.info())
+    balance = deploy_ef.balanceOf(account_crv, {"from": account})
+    log("balance of enf after withdraw", str(balance))
+    balance = crv.balanceOf(account_crv, {"from": account})
+    log("balance of crv after withdraw", str(balance))
 
-    log(
-        "ef balance after deposit 1",
-        str(deploy_el.balanceOf("0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70")),
-    )
-
-    log(
-        "ef balance before deposit 2",
-        str(deploy_el.balanceOf("0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70")),
-    )
-
-    tx = deploy_vault.deposit(
-        Wei("10 ether"),
-        {
-            "from": account,
-            "gas_price": 100,
-            "gas_limit": 30000000000,
-            "allow_revert": True,
-            "value": Wei("10 ether"),
-        },
-    )
+    log("withdraw 4")
+    tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
     tx.wait(1)
-    print(tx.info())
+    balance = deploy_ef.balanceOf(account_crv, {"from": account})
+    log("balance of enf after withdraw", str(balance))
+    balance = crv.balanceOf(account_crv, {"from": account})
+    log("balance of crv after withdraw", str(balance))
 
-    log(
-        "ef balance after deposit 2",
-        str(deploy_el.balanceOf("0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70")),
-    )
-
-    log("balance of account eth before", str(balance_before))
-    balance_Of_el = deploy_el.balanceOf(account)
-    withdraw_amount = balance_Of_el / 3
-
-    log(
-        "ef balance before withdraw 1",
-        str(deploy_el.balanceOf("0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70")),
-    )
-
-    tx = deploy_vault.withdraw(
-        withdraw_amount,
-        {
-            "from": account,
-            "gas_price": 100,
-            "gas_limit": 300000000,
-            "allow_revert": True,
-        },
-    )
+    log("withdraw 5")
+    tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
     tx.wait(1)
+    balance = deploy_ef.balanceOf(account_crv, {"from": account})
+    log("balance of enf after withdraw", str(balance))
+    balance = crv.balanceOf(account_crv, {"from": account})
+    log("balance of crv after withdraw", str(balance))
 
-    print(tx.info())
-
-    log(
-        "ef balance after withdraw 1",
-        str(deploy_el.balanceOf("0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70")),
-    )
-
-    log(
-        "ef balance before withdraw 2",
-        str(deploy_el.balanceOf("0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70")),
-    )
-
-    tx = deploy_vault.withdraw(
-        withdraw_amount,
-        {
-            "from": account,
-            "gas_price": 100,
-            "gas_limit": 300000000,
-            "allow_revert": True,
-        },
-    )
+    log("withdraw 6")
+    tx = deploy_vault.withdraw(withdraw_amount, False, {"from": account_crv})
     tx.wait(1)
+    balance = deploy_ef.balanceOf(account_crv, {"from": account})
+    log("balance of enf after withdraw", str(balance))
+    balance = crv.balanceOf(account_crv, {"from": account})
+    log("balance of crv after withdraw", str(balance))
 
-    print(tx.info())
+    balance = usdc.balanceOf(account_crv, {"from": account})
+    log("balance of usdc before withdraw", str(balance))
 
-    log(
-        "ef balance after withdraw 2",
-        str(deploy_el.balanceOf("0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70")),
+    deploy_vault.withdraw(withdraw_amount, True, {"from": account_crv})
+
+    balance = usdc.balanceOf(account_crv, {"from": account})
+    log("balance of usdc after  withdraw", str(balance))
+
+    balance = usdc.balanceOf(account_crv, {"from": account})
+    log("balance of usdc before depositstable", str(balance))
+    print(balance)
+
+    usdc.approve(
+        deploy_vault.address, 1000000000000000000000000000000000, {"from": account_crv}
     )
 
-    balance_after = account.balance()
-    log("balance of account eth end", str(balance_after))
+    tx = deploy_vault.depositStable(balance / 2, {"from": account_crv})
+    tx.wait(1)
+    chain.sleep(1)
 
-    assert len(tx.events["CFFDeposit"]) == 1
-    event_new = tx.events["CFFDeposit"][0]
-    log("ef balance ", str(deploy_el.balanceOf(account)))
-    volumne = deploy_vault.getVolume()
-    log("volumne", str(volumne))
-    assert event_new["eth_amount"] == Wei("100 ether")
-    virtual_price = deploy_vault.getVirtualPrice()
-    log("balance of el token", str(deploy_el.balanceOf(account)))
-    assert virtual_price == event_new["virtual_price"]
+    balance = usdc.balanceOf(account_crv, {"from": account})
+    log("balance of usdc after depositStable", str(balance))
 
-    assert deploy_el.balanceOf(account) == event_new["ef_amount"]
-    collateral = deploy_vault.getCollecteral()
-    log("collateral", str(collateral))
-    debt = deploy_vault.getDebt()
-    log("Debt ", str(debt))
+    balance = deploy_ef.balanceOf(account_crv, {"from": account})
+    log("balance of enf", str(balance))
 
-    log("---------withdraw-------------")
+    log("start earn rewards")
 
-    balance_before = account.balance()
-    log("balance of account eth before", str(balance_before))
-    balance_Of_el = deploy_el.balanceOf(account)
-    withdraw_amount = balance_Of_el / 3
-
-    log(
-        "ef balance before withdraw",
-        str(deploy_el.balanceOf("0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70")),
-    )
-
-    tx = deploy_vault.withdraw(
-        withdraw_amount,
-        {
-            "from": account,
-            "gas_price": 100,
-            "gas_limit": 300000000,
-            "allow_revert": True,
-        },
-    )
-
-    print(tx.info())
-
-    log(
-        "ef balance after withdraw",
-        str(deploy_el.balanceOf("0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70")),
-    )
-
-    balance_after = account.balance()
-    log("balance of account eth end", str(balance_after))
-
-    tx = deploy_vault.earnReward(
-        {"from": account, "gas_price": 100, "gas_limit": 3000000, "allow_revert": True},
-    )
-
-    print(tx.info())
+    tx = deploy_vault.earnReward({"from": account})
+    tx.wait(1)
+    chain.sleep(1)
