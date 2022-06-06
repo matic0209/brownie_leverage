@@ -1,4 +1,4 @@
-import pytest
+,import pytest
 from brownie import *
 
 from scripts.helpful_scripts import get_account, get_contract
@@ -7,13 +7,14 @@ from brownie import (
     accounts,
     Contract,
     config,
+    interface,
     network,
     ERC20TokenFactory,
     AddressArray,
     ERC20Token,
     TrustListFactory,
     TrustList,
-    CurveInterface256,
+
 )
 
 
@@ -53,7 +54,9 @@ def test_can_get_latest_price(
     )
     tx.wait(1)
 
-    tx = CurveInterface256("0xD51a44d3FaE010294C616388b506AcdA1bfAAE46").exchange(
+    tx = interface.CurveInterface256(
+        "0xD51a44d3FaE010294C616388b506AcdA1bfAAE46"
+    ).exchange(
         0,
         2,
         1931,
