@@ -104,4 +104,7 @@ def test_can_get_latest_price(
         }
     )
     tx.wait(1)
-    print(tx.revert_msg)
+    usdt = ERC20Token.at("0xdAC17F958D2ee523a2206206994597C13D831ec")
+
+    balance = usdt.balanceOf(deploy_vault, {"from": account})
+    log("balance of enf", str(balance))
