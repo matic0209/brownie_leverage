@@ -28,6 +28,7 @@ def test_can_get_latest_price(
     deploy_ef,
     deploy_vault,
     addExtraToken,
+    configFee,
 ):
     # Arrange
 
@@ -102,8 +103,13 @@ def test_can_get_latest_price(
 
     usdt = ERC20Token.at("0xdAC17F958D2ee523a2206206994597C13D831ec7")
 
-    balance = usdt.balanceOf(deploy_vault, {"from": account})
-    log("balance of usdt after deposit ", str(balance))
+    balance = deploy_ef.balanceOf(deploy_vault, {"from": account})
+    log("ef balance of vault before earn ", str(balance))
+
+    balance = deploy_ef.balanceOf(
+        "0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70", {"from": account}
+    )
+    log("ef balance of fee pool  before earn ", str(balance))
 
     tx = deploy_vault.earnReward(
         {
@@ -114,6 +120,14 @@ def test_can_get_latest_price(
         }
     )
     tx.wait(1)
+
+    balance = deploy_ef.balanceOf(deploy_vault, {"from": account})
+    log("ef balance of vault after earn ", str(balance))
+
+    balance = deploy_ef.balanceOf(
+        "0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70", {"from": account}
+    )
+    log("ef balance of fee pool  after earn ", str(balance))
 
     balance = usdt.balanceOf(deploy_vault, {"from": account})
     log("balance of usdt ", str(balance))

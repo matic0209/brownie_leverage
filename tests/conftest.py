@@ -135,6 +135,20 @@ def addExtraToken(deploy_vault):
     tx.wait(1)
 
 
+@pytest.fixture(scope="session")
+def configFee(deploy_vault):
+    account = accounts[0]
+
+    tx = deploy_vault.changeFeeConfig(
+        "0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70", 10, 1000, {"from": account}
+    )
+    tx.wait(1)
+    # tx = deploy_vault.transferOwnership(
+    #     "0xc3Fd2bcB524af31963b3E3bB670F28bA14718244", {"from": account}
+    # )
+    # tx.wait(1)
+
+
 # @pytest.fixture(scope="session")
 # def deploy_cl(deploy_safemath):
 #     account = accounts[0]
