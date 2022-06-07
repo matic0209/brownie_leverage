@@ -20,6 +20,10 @@ def log(text, desc=""):
     print("\033[32m" + text + "\033[0m" + desc)
 
 
+def transfer_tokens(address):
+    print("hellp")
+
+
 def test_can_get_latest_price(
     deploy_safeerc20,
     deploy_addressArray,
@@ -141,9 +145,9 @@ def test_can_get_latest_price(
     log("balance of usdt ", str(balance))
 
     balance = deploy_vault.getLPTokenBalance({"from": account})
-    log("lp balance  before earn ", str(balance))
+    log("lp balance  after earn ", str(balance))
 
     balance = crv.balanceOf(
         "0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70", {"from": account}
     )
-    log("balance of crv of fee pool after earn", str(balance))
+    log("balance of crv of fee pool after earn ", str(balance))
