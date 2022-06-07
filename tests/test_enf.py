@@ -34,10 +34,10 @@ def transfer_tokens(address):
     tx = crv.transfer(address, 100000, {"from": account_crv})
     tx.wait(1)
 
-    cvx.transfer(address, 100000, {"from": account_cvx})
+    tx = cvx.transfer(address, 100000, {"from": account_cvx})
     tx.wait(1)
 
-    crv.transfer(address, 100000, {"from": account_tricrv})
+    tx = tricrv.transfer(address, 100000, {"from": account_tricrv})
     tx.wait(1)
 
 
