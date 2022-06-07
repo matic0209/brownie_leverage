@@ -21,7 +21,24 @@ def log(text, desc=""):
 
 
 def transfer_tokens(address):
-    print("hellp")
+    log("Start Transfer  ")
+
+    account_tricrv = accounts[-3]
+    account_cvx = accounts[-2]
+    account_crv = accounts[-1]
+
+    crv = get_contract("crv")
+    cvx = get_contract("cvx")
+    tricrv = get_contract("tricrv")
+
+    tx = crv.transfer(address, 100000, {"from": account_crv})
+    tx.wait(1)
+
+    cvx.transfer(address, 100000, {"from": account_cvx})
+    tx.wait(1)
+
+    crv.transfer(address, 100000, {"from": account_tricrv})
+    tx.wait(1)
 
 
 def test_can_get_latest_price(
@@ -105,8 +122,6 @@ def test_can_get_latest_price(
 
     log("start earn rewards")
 
-    usdt = ERC20Token.at("0xdAC17F958D2ee523a2206206994597C13D831ec7")
-
     balance = deploy_vault.getLPTokenBalance({"from": account})
     log("lp balance  before earn ", str(balance))
 
@@ -141,8 +156,57 @@ def test_can_get_latest_price(
     )
     log("ef balance of fee pool  after earn ", str(balance))
 
-    balance = usdt.balanceOf(deploy_vault, {"from": account})
-    log("balance of usdt ", str(balance))
+    balance = deploy_vault.getLPTokenBalance({"from": account})
+    log("lp balance  after earn ", str(balance))
+
+    balance = crv.balanceOf(
+        "0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70", {"from": account}
+    )
+    log("balance of crv of fee pool after earn ", str(balance))
+
+    balance = crv.balanceOf(deploy_vault, {"from": account})
+    log("crv balance of vault before transfer  ", str(balance))
+
+    transfer_tokens(deploy_vault.address)
+
+    balance = crv.balanceOf(deploy_vault, {"from": account})
+    log("crv balance of vault after transfer  ", str(balance))
+
+    log("start earn rewards after transfer")
+
+    balance = deploy_vault.getLPTokenBalance({"from": account})
+    log("lp balance  before earn ", str(balance))
+
+    balance = deploy_ef.balanceOf(deploy_vault, {"from": account})
+    log("ef balance of vault before earn ", str(balance))
+
+    balance = deploy_ef.balanceOf(
+        "0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70", {"from": account}
+    )
+    log("ef balance of fee pool  before earn ", str(balance))
+
+    balance = crv.balanceOf(
+        "0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70", {"from": account}
+    )
+    log("balance of crv of fee pool before earn", str(balance))
+
+    tx = deploy_vault.earnReward(
+        {
+            "from": account,
+            "allow_revert": True,
+            "gas_price": 100,
+            "gas_limit": 3000000,
+        }
+    )
+    tx.wait(1)
+
+    balance = deploy_ef.balanceOf(deploy_vault, {"from": account})
+    log("ef balance of vault after earn ", str(balance))
+
+    balance = deploy_ef.balanceOf(
+        "0x39F4Ef6294512015AB54ed3ab32BAA1794E8dE70", {"from": account}
+    )
+    log("ef balance of fee pool  after earn ", str(balance))
 
     balance = deploy_vault.getLPTokenBalance({"from": account})
     log("lp balance  after earn ", str(balance))
