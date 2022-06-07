@@ -34,7 +34,7 @@ networks:
             default_balance: 2000
             gas_limit: 1200000000000000
             unlock:
-              - 0xec5c62bcf7812a8b2a51af5241a40b58d350d813 # DAO's upgratable Agent
+              - 0xCFFAd3200574698b78f32232aa9D63eABD290703 # DAO's upgratable Agent
     ganache:
         fee: 100000000000000000
         jobId: 29fa9aa13bf1468788b7cc4a500a45b8
