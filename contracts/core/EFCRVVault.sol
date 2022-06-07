@@ -60,7 +60,7 @@ contract EFCRVVault is Ownable, ReentrancyGuard{
     cvxcrv =  address(0x62B9c7356A2Dc64a1969e19C23e4f579F9810Aa7);
     eth_crv_router =  address(0x8301AE4fc9c624d1D396cbDAa1ed877821D7C511);
     crv_cvxcrv_router =  address(0x9D0464996170c6B9e75eED71c68B99dDEDf279e8);//curve128
-    eth_usdt_router =  address(0xD51a44d3FaE010294C616388b506AcdA1bfAAE46);
+    eth_usdt_router =  address(0xD51a44d3FaE010294C616388b506AcdA1bfAAE46);//curve no return
     usdt =  address(0xdAC17F958D2ee523a2206206994597C13D831ec7);
     oracle =  address(0xCd627aA160A6fA45Eb793D19Ef54f5062F20f33f);
     staker = address(0x3Fe65692bfCD0e6CF84cB1E7d24108E434A7587e);
@@ -257,7 +257,7 @@ contract EFCRVVault is Ownable, ReentrancyGuard{
     }else{
       emit EFRefundCRV(crv_amount, 0);
     }
-    //  _stake(crv_amount);
+    _stake(crv_amount);
   }
   function _handleExtraToken(address _token) internal{
     uint256 _type = reward_types[_token];
@@ -273,11 +273,11 @@ contract EFCRVVault is Ownable, ReentrancyGuard{
       _exchange_weth();
     }
     if (_type == 2){
-      //TriPoolInterface(router).remove_liquidity_one_coin(IERC20(_token).balanceOf(address(this)), 2, 0);
+      TriPoolInterface(router).remove_liquidity_one_coin(IERC20(_token).balanceOf(address(this)), 2, 0);
       IERC20(usdt).safeApprove(eth_usdt_router, 0);
       IERC20(usdt).safeApprove(eth_usdt_router, IERC20(usdt).balanceOf(address(this)));
-      CurveInterface256(eth_usdt_router).exchange(0, 2, IERC20(usdt).balanceOf(address(this)), 0);      
-      //_exchange_weth();
+      CurveInterface256NoReturn(eth_usdt_router).exchange(0, 2, IERC20(usdt).balanceOf(address(this)), 0);      
+      _exchange_weth();
     }
   }
   function _exchange_weth() internal{
